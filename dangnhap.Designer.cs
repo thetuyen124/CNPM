@@ -91,8 +91,9 @@
             this.quenmatkhau.TabIndex = 5;
             this.quenmatkhau.TabStop = true;
             this.quenmatkhau.Text = "Quên mật khẩu";
+            this.quenmatkhau.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.quenmatkhau_LinkClicked);
             // 
-            // Form1
+            // dangnhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,9 +106,10 @@
             this.Controls.Add(this.tbtaikhoan);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "dangnhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.dangnhap_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
