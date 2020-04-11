@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace CNPM
 {
-    public partial class homenv : Form
+    public partial class quenmk : Form
     {
-        public homenv()
+        public quenmk()
         {
             InitializeComponent();
         }
 
-        private void homenv_FormClosing(object sender, FormClosingEventArgs e)
+        private void quenmk_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            Form a = new dangnhap();
+            a.Show();
         }
     }
 }

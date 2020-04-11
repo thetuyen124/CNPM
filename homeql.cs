@@ -16,5 +16,22 @@ namespace CNPM
         {
             InitializeComponent();
         }
+
+        private void homeql_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form a = new dangnhap();
+            a.Show();
+            this.Hide();
+        }
+
+        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex=0;
+        }
     }
 }
