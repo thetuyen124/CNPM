@@ -40,6 +40,7 @@ namespace CNPM
             a.Show();
             this.Hide();
         }
+<<<<<<< HEAD
 
         private void thêmNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -53,5 +54,7 @@ namespace CNPM
             a.Show();
             this.Hide();
         }
+=======
+>>>>>>> b19b6197c3e04d08021fd88c53c357791782179c
     }
 }
