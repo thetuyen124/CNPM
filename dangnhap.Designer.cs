@@ -104,6 +104,7 @@
             this.Controls.Add(this.btdangnhap);
             this.Controls.Add(this.tbmatkhau);
             this.Controls.Add(this.tbtaikhoan);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "dangnhap";
