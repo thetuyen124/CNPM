@@ -41,7 +41,7 @@ namespace CNPM
             }
             else if (tbtaikhoan.Text == "nhanvien")
             {
-                Form b = new homenv();
+                Form b = new homenv(tbtaikhoan.Text);
                 loadtkmk();
                 b.Show();
                 this.Hide();
