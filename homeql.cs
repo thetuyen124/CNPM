@@ -64,7 +64,6 @@ namespace CNPM
         {
             tabControl1.SelectedIndex = 5;
         }
-<<<<<<< HEAD
 
         private void đăngXuấtToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -72,7 +71,17 @@ namespace CNPM
             a.Show();
             this.Hide();
         }
-=======
->>>>>>> b19b6197c3e04d08021fd88c53c357791782179c
+
+        private void thêmKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form a = new nvthemkhachhang();
+            a.Show();
+        }
+
+        private void xóaKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form a = new qlkhachhang();
+            a.Show();
+        }
     }
 }
