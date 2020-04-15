@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,7 +13,8 @@ namespace CNPM
 {
     public partial class homeql : Form
     {
-
+        private string StringConnect = @"Data Source=THETUYEN\SQLEXPRESS;Initial Catalog=QuanLyCuaHangGiay;Integrated Security=True";
+        private SqlConnection Connect = null;
         public homeql()
         {
             InitializeComponent();
@@ -37,7 +39,8 @@ namespace CNPM
 
         private void homeql_Load(object sender, EventArgs e)
         {
-
+            Connect = new SqlConnection(StringConnect); //Khởi tạo kết nối với đường dẫn StringConnect
+            Connect.Open();
         }
 
         private void quảnLýNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
