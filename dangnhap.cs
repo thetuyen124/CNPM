@@ -18,7 +18,7 @@ namespace CNPM
         string chucvu;//chức vụ nhân viên đăng nhập
 
 
-        private string StringConnect = @"Data Source=THETUYEN\SQLEXPRESS;Initial Catalog=QuanLyCuaHangGiay;Integrated Security=True";
+        private string StringConnect = @"Data Source=ARIS-HOANG\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
         private SqlConnection Connect = null;
         public dangnhap()
         {
@@ -80,12 +80,12 @@ namespace CNPM
             bool x = false;
             string dem="";//đệm
             DataTable tkmk = new DataTable();
-            string query = "select Usename,Pass from NV where Usename='"+tk+"'";
+            string query = "select USERNAME, PASS from NV where USERNAME ='"+tk+"'";
             SqlDataAdapter a = new SqlDataAdapter(query,Connect);
             a.Fill(tkmk);
             foreach (DataRow dr in tkmk.Rows)
             {
-                dem = dr["Usename"].ToString();
+                dem = dr["USERNAME"].ToString();
             }
             if (dem == "")
             {
@@ -95,12 +95,12 @@ namespace CNPM
             else
             {
                 dem = "";
-                query = "select Pass from NV where Usename='" + tk + "'";
+                query = "select PASS from NV where USERNAME = '" + tk + "'";
                 a = new SqlDataAdapter(query, Connect);
                 a.Fill(tkmk);
                 foreach (DataRow dr in tkmk.Rows)
                 {
-                    dem = dr["Pass"].ToString();
+                    dem = dr["PASS"].ToString();
                 }
                 if (dem != tbmatkhau.Text)
                 {
@@ -110,13 +110,13 @@ namespace CNPM
                 else
                 {
                     x = true;
-                    query = "select Ten_NV, ChucVu from NV where Usename='" + tk + "'";
+                    query = "select TEN_NV, CHUCVU from NV where USERNAME='" + tk + "'";
                     a = new SqlDataAdapter(query, Connect);
                     a.Fill(tkmk);
                     foreach (DataRow dr in tkmk.Rows)
                     {
-                        cv = dr["ChucVu"].ToString();
-                        ten = dr["Ten_NV"].ToString();
+                        cv = dr["CHUCVU"].ToString();
+                        ten = dr["TEN_NV"].ToString();
                     }
                 }
             }
