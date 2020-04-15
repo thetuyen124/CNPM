@@ -15,14 +15,15 @@ namespace CNPM
     public partial class homenv : Form
     {
         //lỗi ở đây thì sửa cái StringConect 
-        private string StringConnect = @"Data Source=THETUYEN\SQLEXPRESS;Initial Catalog=QuanLyCuaHangGiay;Integrated Security=True";
+        private string StringConnect;
         private SqlConnection Connect = null;
 
         string ten;//lưu tên nhân viên đang đăng nhập
-        public homenv(string t):this()
+        public homenv(string t,string con):this()
         {
             ten = t;
             tennhanvien.Text = ten;
+            StringConnect = con;
         }
         public homenv()
         {

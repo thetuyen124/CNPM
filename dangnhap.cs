@@ -47,13 +47,13 @@ namespace CNPM
             {
                 if (chucvu == "Quản lý")
                 {
-                    Form a = new homeql();
+                    Form a = new homeql(StringConnect);
                     a.Show();
                     this.Hide();
                 }
                 else
                 {
-                    Form a = new homenv(ten);
+                    Form a = new homenv(ten,StringConnect);
                     a.Show();
                     this.Hide();
                 }
