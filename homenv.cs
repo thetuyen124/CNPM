@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,10 +14,14 @@ namespace CNPM
     
     public partial class homenv : Form
     {
-        string ten;
-        public homenv(string x):this()
+        //lỗi ở đây thì sửa cái StringConect 
+        private string StringConnect = @"Data Source=THETUYEN\SQLEXPRESS;Initial Catalog=QuanLyCuaHangGiay;Integrated Security=True";
+        private SqlConnection Connect = null;
+
+        string ten;//lưu tên nhân viên đang đăng nhập
+        public homenv(string t):this()
         {
-            ten = x;
+            ten = t;
             tennhanvien.Text = ten;
         }
         public homenv()
@@ -31,7 +36,8 @@ namespace CNPM
 
         private void homenv_Load(object sender, EventArgs e)
         {
-
+            Connect = new SqlConnection(StringConnect); //Khởi tạo kết nối với đường dẫn StringConnect
+            Connect.Open();
         }
 
         private void btdangxuat_Click(object sender, EventArgs e)
@@ -52,6 +58,10 @@ namespace CNPM
             Form a = new dangnhap();
             a.Show();
             this.Hide();
+        }
+        private void update()
+        {
+
         }
     }
 }

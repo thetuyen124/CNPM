@@ -49,6 +49,7 @@
             this.tbmatkhau.Name = "tbmatkhau";
             this.tbmatkhau.Size = new System.Drawing.Size(251, 22);
             this.tbmatkhau.TabIndex = 1;
+            this.tbmatkhau.UseSystemPasswordChar = true;
             // 
             // btdangnhap
             // 
