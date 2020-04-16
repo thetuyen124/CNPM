@@ -14,7 +14,6 @@ namespace CNPM
     
     public partial class homenv : Form
     {
-        //lỗi ở đây thì sửa cái StringConect 
         private string StringConnect;
         private SqlConnection Connect = null;
 

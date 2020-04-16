@@ -17,8 +17,9 @@ namespace CNPM
         string ten;// tên nhân viên đăng nhập
         string chucvu;//chức vụ nhân viên đăng nhập
 
+        //lỗi ở đây thì sửa cái StringConect 
 
-        private string StringConnect = @"Data Source=ARIS-HOANG\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
+        private string StringConnect = @"Data Source=THETUYEN\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
         private SqlConnection Connect = null;
         public dangnhap()
         {

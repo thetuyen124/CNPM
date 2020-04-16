@@ -50,11 +50,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tenhang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dongia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -323,16 +323,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(912, 592);
             this.dataGridView2.TabIndex = 1;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(924, 654);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Thông tin nhân viên";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // tenhang
             // 
             this.tenhang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -360,6 +350,16 @@
             this.thanhtien.HeaderText = "Thành tiền";
             this.thanhtien.MinimumWidth = 6;
             this.thanhtien.Name = "thanhtien";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(924, 654);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Thông tin nhân viên";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // homenv
             // 

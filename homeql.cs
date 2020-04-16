@@ -38,7 +38,7 @@ namespace CNPM
 
         private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex=0;
+            tcql.SelectedIndex=0;
         }
 
         private void homeql_Load(object sender, EventArgs e)
@@ -49,27 +49,27 @@ namespace CNPM
 
         private void quảnLýNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 1;
+            tcql.SelectedIndex = 2;
         }
 
         private void quảnLýLoạiHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 2;
+            tcql.SelectedIndex = 3;
         }
 
         private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 3;
+            tcql.SelectedIndex = 4;
         }
 
         private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 4;
+            tcql.SelectedIndex = 5;
         }
 
         private void báoCáoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 5;
+            tcql.SelectedIndex = 6;
         }
 
         private void đăngXuấtToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -89,6 +89,11 @@ namespace CNPM
         {
             Form a = new qlkhachhang();
             a.Show();
+        }
+
+        private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tcql.SelectedIndex = 1;
         }
     }
 }
