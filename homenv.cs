@@ -38,6 +38,8 @@ namespace CNPM
         {
             Connect = new SqlConnection(StringConnect); //Khởi tạo kết nối với đường dẫn StringConnect
             Connect.Open();
+            updatecbtenhang();
+            updatedgvsp();
         }
 
         private void btdangxuat_Click(object sender, EventArgs e)
@@ -59,7 +61,27 @@ namespace CNPM
             a.Show();
             this.Hide();
         }
-        private void update()
+        private void updatecbtenhang()
+        {
+            SqlDataAdapter run;//lấy dữ liệu lấy từ CSDL
+            DataSet bang = new DataSet();//luu du lieu lay tu csdl
+            string query = "select TEN_SP from SP where SOLUONG >0";//query sql
+            run = new SqlDataAdapter(query, Connect);
+            run.Fill(bang);
+            cbtenhang.DataSource = bang.Tables[0];
+            cbtenhang.DisplayMember = "TEN_SP";
+        }
+        private void updatedgvsp()
+        {
+            SqlDataAdapter run;
+            DataTable bang = new DataTable();
+            string query = "select TEN_SP,TEN_NCC,SIZE,GIABAN,SOLUONG,GHICHU from SP, NCC where SP.MA_NCC=NCC.MA_NCC";
+            run = new SqlDataAdapter(query, Connect);
+            run.Fill(bang);
+            dgvsp.DataSource = bang;
+        }
+
+        private void dgvsp_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
