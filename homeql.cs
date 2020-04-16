@@ -90,5 +90,6 @@ namespace CNPM
             Form a = new qlkhachhang();
             a.Show();
         }
+
     }
 }
