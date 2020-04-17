@@ -18,11 +18,13 @@ namespace CNPM
         private SqlConnection Connect = null;
 
         string ten;//lưu tên nhân viên đang đăng nhập
-        public homenv(string t,string con):this()
+        string ma; //Lưu mã nhân viên dùng bên dưới :>
+        public homenv(string t,string con,string max):this()
         {
             ten = t;
             tennhanvien.Text = ten;
             StringConnect = con;
+            ma = max;
         }
         public homenv()
         {
@@ -40,6 +42,7 @@ namespace CNPM
             Connect.Open();
             updatecbtenhang();
             updatedgvsp();
+            LoadNV();
         }
 
         private void btdangxuat_Click(object sender, EventArgs e)
@@ -84,6 +87,238 @@ namespace CNPM
         private void dgvsp_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        DataTable DTNV;
+
+        private static DataTable LayDuLieuRaBang(String query, string con)
+        {
+            SqlDataAdapter DA = new SqlDataAdapter(query, con);
+            DataTable DT = new DataTable();
+            DA.Fill(DT);
+            return DT;
+        }
+
+        private void LoadNV()
+        {
+            rTB_DiaChi.Enabled = false;
+            tB_CMTND.Enabled = false;
+            tB_SDTNV.Enabled = false;
+            tB_Pass.Enabled = false;
+            b_HuyTK.Enabled = false;
+            b_HuyTT.Enabled = false;
+            b_Anh.Enabled = false;
+            b_LuuTK.Enabled = false;
+            b_LuuTT.Enabled = false;
+            rB_2.Enabled = false;
+            rB_1.Enabled = false;
+            tB_UN.Enabled = false;
+            cB_CH1.Enabled = false;
+            cB_CH2.Enabled = false;
+            tB_TL1.Enabled = false;
+            tB_TL2.Enabled = false;
+
+            string sql = "Select TEN_NV,CHUCVU, USERNAME, DIACHI_NV, SDT_NV, CMTND, PASS, ANH, GIOITINH from NV where MA_NV = " + ma + "";
+            DTNV = LayDuLieuRaBang(sql, StringConnect);
+            if (DTNV != null)
+            {
+                foreach (DataRow DR in DTNV.Rows)
+                {
+                    l_Ten.Text = DR["TEN_NV"].ToString();
+                    l_ChucVu.Text = DR["CHUCVU"].ToString();
+                    tB_UN.Text = DR["USERNAME"].ToString();
+                    rTB_DiaChi.Text = DR["DIACHI_NV"].ToString();
+                    tB_SDTNV.Text = DR["SDT_NV"].ToString();
+                    tB_CMTND.Text = DR["CMTND"].ToString();
+                    tB_Pass.Text = DR["PASS"].ToString();
+                    rTB_Anh.Text = DR["ANH"].ToString();
+                    if (DR["GIOITINH"].ToString() == "Nam")
+                        rB_1.Checked = true;
+                    else rB_2.Checked = true;
+                    if (rTB_Anh.Text.Length > 0)
+                        pB_NV.Image = Image.FromFile(rTB_Anh.Text);
+                    else pB_NV.Image = null;
+                }
+            }
+
+            string query = "Select MA_CAUHOI from NV_CAUHOI where MA_NV = " + ma + "";
+            DTNV = LayDuLieuRaBang(query, StringConnect);
+            if (DTNV != null)
+            {
+                string a = DTNV.Rows[0]["MA_CAUHOI"].ToString();
+                query = "Select CAUHOI, TRALOI from NV_CAUHOI, CAUHOIBAOMAT where NV_CAUHOI.MA_CAUHOI = CAUHOIBAOMAT.MA_CAUHOI and MA_NV = " + ma + " and CAUHOIBAOMAT.MA_CAUHOI = " + a + "";
+                DTNV = LayDuLieuRaBang(query, StringConnect);
+                if (DTNV != null)
+                {
+                    foreach (DataRow DR in DTNV.Rows)
+                    {
+                        cB_CH1.Text = DR["CAUHOI"].ToString();
+                        tB_TL1.Text = DR["TRALOI"].ToString();
+                    }
+                }
+            }
+
+            string query1 = "Select MA_CAUHOI from NV_CAUHOI where MA_NV = " + ma + "";
+            DTNV = LayDuLieuRaBang(query1, StringConnect);
+            if (DTNV != null)
+            {
+                string a = DTNV.Rows[1]["MA_CAUHOI"].ToString();
+                query = "Select CAUHOI, TRALOI from NV_CAUHOI, CAUHOIBAOMAT where NV_CAUHOI.MA_CAUHOI = CAUHOIBAOMAT.MA_CAUHOI and MA_NV = " + ma + " and NV_CAUHOI.MA_CAUHOI = " + a + "";
+                DTNV = LayDuLieuRaBang(query, StringConnect);
+                if (DTNV != null)
+                {
+                    foreach (DataRow DR in DTNV.Rows)
+                    {
+                        cB_CH2.Text = DR["CAUHOI"].ToString();
+                        tB_TL2.Text = DR["TRALOI"].ToString();
+                    }
+                }
+            }
+        }
+
+        private void b_CapNhatThongTin_Click(object sender, EventArgs e)
+        {
+            rTB_DiaChi.Enabled = true;
+            tB_CMTND.Enabled = true;
+            tB_SDTNV.Enabled = true;
+            b_HuyTT.Enabled = true;
+            b_Anh.Enabled = true;
+            b_LuuTT.Enabled = true;
+            b_CapNhatThongTin.Enabled = false;
+            b_CapNhatTK.Enabled = false;
+            rB_1.Enabled = true;
+            rB_2.Enabled = true;
+        }
+
+        private void b_Anh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Bitmap (*.bmp)|*.bmp|JPEG(*.jpg)|*jpg|GIF(*gif)|*gif|All files(*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.Title = "Chọn ảnh minh họa cho sản phẩm";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pB_NV.Image = Image.FromFile(openFileDialog.FileName);
+                rTB_Anh.Text = openFileDialog.FileName;
+            }
+        }
+
+        private static void ChayLenh(string query, SqlConnection con)
+        {
+            SqlCommand Cmd;
+            Cmd = new SqlCommand(query, con);
+
+            try
+            {
+                Cmd.ExecuteNonQuery(); //Thực hiện câu lệnh SQL.
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            Cmd.Dispose();             //Giải phóng bộ nhớ.
+            Cmd = null;
+        }
+
+        private void b_LuuTT_Click(object sender, EventArgs e)
+        {
+            string gt, sql;
+
+            if (tB_CMTND.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập chứng minh thư của bạn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tB_CMTND.Focus();
+                return;
+            }
+
+            if (rB_1.Checked == true && rB_2.Checked == false)
+            {
+                gt = "Nam";
+            }
+            else gt = "Nữ";
+
+            sql = "Update NV set DIACHI_NV = N'" + rTB_DiaChi.Text.Trim() + "', GIOITINH = N'" + gt + "', CMTND = '" + tB_CMTND.Text.Trim() + "', ANH = N'"
+                + rTB_Anh.Text.Trim() + "', SDT_NV = '" + tB_SDTNV.Text.Trim() + "' where MA_NV = " + ma + "";
+            ChayLenh(sql, Connect);
+            rTB_DiaChi.Enabled = false;
+            tB_CMTND.Enabled = false;
+            tB_SDTNV.Enabled = false;
+            tB_Pass.Enabled = false;
+            b_HuyTT.Enabled = false;
+            b_Anh.Enabled = false;
+            b_CapNhatTK.Enabled = true;
+            b_CapNhatThongTin.Enabled = true;
+            b_LuuTT.Enabled = false;
+            rB_1.Enabled = false;
+            rB_2.Enabled = false;
+        }
+
+        private void b_HuyTT_Click(object sender, EventArgs e)
+        {
+            LoadNV();
+            rTB_DiaChi.Enabled = false;
+            tB_CMTND.Enabled = false;
+            tB_SDTNV.Enabled = false;
+            tB_Pass.Enabled = false;
+            b_HuyTK.Enabled = false;
+            b_HuyTT.Enabled = false;
+            b_Anh.Enabled = false;
+            b_LuuTK.Enabled = false;
+            b_LuuTT.Enabled = false;
+            rB_2.Enabled = false;
+            rB_1.Enabled = false;
+            b_CapNhatThongTin.Enabled = true;
+            b_CapNhatTK.Enabled = true;
+        }
+
+        private void b_HuyTK_Click(object sender, EventArgs e)
+        {
+            LoadNV();
+            rTB_DiaChi.Enabled = false;
+            tB_CMTND.Enabled = false;
+            tB_SDTNV.Enabled = false;
+            tB_Pass.Enabled = false;
+            b_HuyTK.Enabled = false;
+            b_HuyTT.Enabled = false;
+            b_Anh.Enabled = false;
+            b_LuuTK.Enabled = false;
+            b_LuuTT.Enabled = false;
+            rB_2.Enabled = false;
+            rB_1.Enabled = false;
+            b_CapNhatThongTin.Enabled = true;
+            b_CapNhatTK.Enabled = true;
+        }
+
+        private void b_CapNhatTK_Click(object sender, EventArgs e)
+        {
+            tB_UN.Enabled = false;
+            tB_Pass.Enabled = true;
+            b_CapNhatThongTin.Enabled = false;
+            b_CapNhatTK.Enabled = false;
+            b_LuuTK.Enabled = true;
+            b_HuyTK.Enabled = true;
+        }
+
+        private void b_LuuTK_Click(object sender, EventArgs e)
+        {
+            string sql;
+
+            if (tB_Pass.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập mật khẩu của bạn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tB_Pass.Focus();
+                return;
+            }
+
+            sql = "Update NV set Pass = '" + tB_Pass.Text.Trim() + "' where MA_NV = " + ma + "";
+            ChayLenh(sql,Connect);
+            tB_Pass.Enabled = false;
+            b_CapNhatThongTin.Enabled = true;
+            b_CapNhatTK.Enabled = true;
+            b_LuuTK.Enabled = false;
+            b_HuyTK.Enabled = false;
         }
     }
 }
