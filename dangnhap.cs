@@ -16,10 +16,11 @@ namespace CNPM
         int dem;//đếm số lần đăng nhập sai
         string ten;// tên nhân viên đăng nhập
         string chucvu;//chức vụ nhân viên đăng nhập
+        string ma;
 
         //lỗi ở đây thì sửa cái StringConect 
 
-        private string StringConnect = @"Data Source=THETUYEN\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
+        private string StringConnect = @"Data Source=ARIS-HOANG\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
         private SqlConnection Connect = null;
         public dangnhap()
         {
@@ -43,7 +44,7 @@ namespace CNPM
         private void btdangnhap_Click(object sender, EventArgs e)
         {
             bool x;
-            x=checktkmk(tbtaikhoan.Text, tbmatkhau.Text,ref dem,out ten,out chucvu);
+            x=checktkmk(tbtaikhoan.Text, tbmatkhau.Text,ref dem,out ten,out chucvu, out ma);
             if (x)
             {
                 if (chucvu == "Quản lý")
@@ -54,7 +55,7 @@ namespace CNPM
                 }
                 else
                 {
-                    Form a = new homenv(ten,StringConnect);
+                    Form a = new homenv(ten,StringConnect, ma);
                     a.Show();
                     this.Hide();
                 }
@@ -74,10 +75,11 @@ namespace CNPM
             a.Show();
             this.Hide();
         }
-        private bool checktkmk(string tk,string mk,ref int sai,out string ten, out string cv)
+        private bool checktkmk(string tk,string mk,ref int sai,out string ten, out string cv, out string ma)
         {
             cv = "";
             ten = "";
+            ma = "";
             bool x = false;
             string dem="";//đệm
             DataTable tkmk = new DataTable();
@@ -111,13 +113,14 @@ namespace CNPM
                 else
                 {
                     x = true;
-                    query = "select TEN_NV, CHUCVU from NV where USERNAME='" + tk + "'";
+                    query = "select MA_NV, TEN_NV, CHUCVU from NV where USERNAME='" + tk + "'";
                     a = new SqlDataAdapter(query, Connect);
                     a.Fill(tkmk);
                     foreach (DataRow dr in tkmk.Rows)
                     {
                         cv = dr["CHUCVU"].ToString();
                         ten = dr["TEN_NV"].ToString();
+                        ma = dr["MA_NV"].ToString();
                     }
                 }
             }
