@@ -98,6 +98,34 @@ namespace CNPM
 
         private void tcql_Click(object sender, EventArgs e)
         {
+            Load_NV();
+            Load_SP();
+        }
+        private void Load_NV()
+        {
+            tB_MANV.Enabled = false;
+            tB_MANV.Enabled = false;
+            tB_TENNV.Enabled = false;
+            tb_DIACHINV.Enabled = false;
+            tB_CMNDNV.Enabled = false;
+            tB_SDTNV.Enabled = false;
+            tB_MATKHAU.Enabled = false;
+            rTB_CHUCVUNV.Enabled = false;
+            tB_MATKHAU.Enabled = false;
+            bt_MoAnhNV.Enabled = false;
+            bt_LUUNV.Enabled = false;
+            rB_NAM.Enabled = false;
+            rB_NU.Enabled = false;
+            bt_SUANV.Enabled = false;
+            bt_XOANV.Enabled = false;
+            bt_HUYNV.Enabled = false;
+            bt_THEMNV.Enabled = true;
+            ResetValuesNV();
+            LoadDGVNV();
+        }
+
+        private void Load_SP()
+        {
             //**Code khởi chạy tab quản lý sản phẩm**//
             CapNhatLH();
             CapNhatNCC();
@@ -939,6 +967,298 @@ namespace CNPM
         {
 
         }
-        //hết THái Làm//
+
+        private void tabPage13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_HuyNV_Click(object sender, EventArgs e)
+        {
+            ResetValuesNV();
+            tB_TENNV.Enabled = false;
+            tb_DIACHINV.Enabled = false;
+            tB_CMNDNV.Enabled = false;
+            tB_SDTNV.Enabled = false;
+            tB_MATKHAU.Enabled = false;
+            rTB_CHUCVUNV.Enabled = false;
+            tB_TENDANGNHAP.Enabled = false;
+            bt_MoAnhNV.Enabled = false;
+            bt_LUUNV.Enabled = false;
+            rB_NAM.Enabled = false;
+            rB_NU.Enabled = false;
+            bt_SUANV.Enabled = false;
+            bt_XOANV.Enabled = false;
+            bt_THEMNV.Enabled = true;
+            LoadDGVSP();
+        }
+        DataTable DTNV;
+        private void LoadDGVNV()
+        {
+            string query;
+            query = "Select MA_NV as [Mã nhân viên], TEN_NV as [Tên nhân viên], DIACHI_NV as [Địa chỉ], GIOITINH as [Giới tính], CMTND as [Chứng minh thư], ANH as [Hình ảnh], SDT_NV as [Số điện thoại], USERNAME as [Tên đăng nhập], PASS as [Mật khẩu], CHUCVU as [Chức vụ] from NV";
+            DTNV = LayDuLieuRaBang(query, StringConnect);
+            dGV_NV.DataSource = DTNV;
+        }
+        private string LayIDNhanVienTiepTheo()
+        {
+            string query;
+            query = "Select Max(MA_NV) from NV";
+            DTNV = LayDuLieuRaBang(query, StringConnect);
+            try
+            {
+                return ((int)DTNV.Rows[0][0] + 1).ToString();
+            }
+            catch
+            {
+                return "0";
+            }
+        }
+        private void ResetValuesNV()
+        {
+            tb_DIACHINV.Text = "";
+            tB_CMNDNV.Text = "";
+            tB_MANV.Text = "";
+            tB_TENNV.Text = "";
+            tB_SDTNV.Text = "";
+            tB_MATKHAU.Text = "";
+            rTB_HINHANHNV.Text = "";
+            rTB_CHUCVUNV.Text = "";
+            tB_TENDANGNHAP.Text = "";
+            pB_NV = null;
+            rB_NAM.Checked = false;
+            rB_NU.Checked = false;
+        }
+        private void dGV_NV_Click(object sender, EventArgs e){}
+
+        private void bt_THEMNV_Click(object sender, EventArgs e)
+        {
+            tB_TENNV.Enabled = true;
+            tb_DIACHINV.Enabled = true;
+            tB_CMNDNV.Enabled = true;
+            tB_SDTNV.Enabled = true;
+            tB_TENDANGNHAP.Enabled = true;
+            tB_MATKHAU.Enabled = true;
+            rTB_CHUCVUNV.Enabled = true;
+            bt_MoAnhNV.Enabled = true;
+            bt_LUUNV.Enabled = true;
+            rB_NAM.Enabled = true;
+            rB_NU.Enabled = true;
+            bt_SUANV.Enabled = false;
+            bt_XOANV.Enabled = false;
+            bt_THEMNV.Enabled = false;
+            bt_HUYNV.Enabled = true;
+            ResetValuesNV();
+            tB_MANV.Text = LayIDNhanVienTiepTheo();
+        }
+
+        private void bt_LUUNV_Click(object sender, EventArgs e)
+        {
+            string query, gt;
+            if (tB_TENNV.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập tên nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tB_TENNV.Focus();
+                return;
+            }
+
+            if (tB_CMNDNV.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập số CMTND của nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tB_CMNDNV.Focus();
+                return;
+            }
+
+            if (rB_NAM.Checked == false && rB_NU.Checked == false)
+            {
+                MessageBox.Show("Bạn chưa chọn giới tính", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (rB_NAM.Checked == true && rB_NU.Checked == false)
+            {
+                gt = "Nam";
+            }
+            else gt = "Nữ";
+
+            query = "Select CMTND from NV where CMTND = '" + tB_CMNDNV.Text.Trim() + "'";
+            if (KiemTraMa(query, StringConnect))
+                {
+                MessageBox.Show("Nhân viên này đã có sẵn.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            query = "Select USERNAME from NV where USERNAME = '" + tB_TENDANGNHAP.Text.Trim() + "'";
+            if (KiemTraMa(query, StringConnect))
+            {
+                MessageBox.Show("Tài khoản này đã có sẵn.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tB_TENDANGNHAP.Focus();
+                return;
+            }
+
+            query = "Insert into NV(TEN_NV, DIACHI_NV, GIOITINH, CMTND, ANH, SDT_NV, USERNAME, PASS, CHUCVU) values(N'" + tB_TENNV.Text.Trim() + "', N'" + tb_DIACHINV.Text.Trim() + "', N'" + gt + "', '"
+                + tB_CMNDNV.Text.Trim() + "', N'" + rTB_HINHANHNV.Text + "', '" + tB_SDTNV.Text.Trim() + "', '" + tB_TENDANGNHAP.Text.Trim() + "', '" + tB_MATKHAU.Text.Trim() + "', N'" + rTB_CHUCVUNV.Text.Trim() + "')";
+            ChayLenh(query, Connect);
+            LoadDGVNV();
+            ResetValuesNV();
+            tB_TENNV.Enabled = false;
+            tb_DIACHINV.Enabled = false;
+            tB_CMNDNV.Enabled = false;
+            tB_SDTNV.Enabled = false;
+            tB_MATKHAU.Enabled = false;
+            rTB_CHUCVUNV.Enabled = false;
+            tB_TENDANGNHAP.Enabled = false;
+            bt_MoAnhNV.Enabled = false;
+            bt_LUUNV.Enabled = false;
+            rB_NAM.Enabled = false;
+            rB_NU.Enabled = false;
+            bt_SUANV.Enabled = true;
+            bt_XOANV.Enabled = true;
+            bt_THEMNV.Enabled = true;
+        }
+
+        private void bt_MoAnhNV_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Bitmap (*.bmp)|*.bmp|JPEG(*.jpg)|*jpg|GIF(*gif)|*gif|All files(*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.Title = "Chọn ảnh minh họa cho sản phẩm";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //pB_NV.Image = Image.FromFile(openFileDialog.FileName);
+                rTB_HINHANHNV.Text = openFileDialog.FileName;
+            }
+        }
+
+        private void bt_SUANV_Click(object sender, EventArgs e)
+        {
+            string query, gt;
+
+            if (tB_TENNV.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tB_TENNV.Focus();
+                return;
+            }
+
+            if (tB_CMNDNV.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập chứng minh thư của nhân viên.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tB_CMNDNV.Focus();
+                return;
+            }
+
+            if (rB_NAM.Checked == true && rB_NU.Checked == false)
+            {
+                gt = "Nam";
+            }
+            else gt = "Nữ";
+
+            query = "Update NV set TEN_NV = N'" + tB_TENNV.Text.Trim() + "', DIACHI_NV = N'" + tb_DIACHINV.Text.Trim() + "', GIOITINH = N'" + gt + "', CMTND = '"
+                + tB_CMNDNV.Text.Trim() + "', ANH = N'" + rTB_HINHANHNV.Text.Trim() + "', SDT_NV = '" + tB_SDTNV.Text.Trim() + "', USERNAME = '" + tB_TENDANGNHAP.Text.Trim() + "', PASS = '"
+                + tB_MATKHAU.Text.Trim() + "', CHUCVU = N'" + rTB_CHUCVUNV.Text.Trim() + "' where MA_NV = " + tB_MANV.Text + "";
+            ChayLenh(query, Connect);
+            LoadDGVNV();
+            ResetValuesNV();
+            tB_TENNV.Enabled = false;
+            tb_DIACHINV.Enabled = false;
+            tB_CMNDNV.Enabled = false;
+            tB_SDTNV.Enabled = false;
+            tB_MATKHAU.Enabled = false;
+            rTB_CHUCVUNV.Enabled = false;
+            tB_TENDANGNHAP.Enabled = false;
+            bt_MoAnhNV.Enabled = false;
+            bt_LUUNV.Enabled = false;
+            rB_NAM.Enabled = false;
+            rB_NU.Enabled = false;
+            bt_SUANV.Enabled = true;
+            bt_XOANV.Enabled = true;
+            bt_THEMNV.Enabled = true;
+            bt_HUYNV.Enabled = false;
+        }
+
+        private void bt_XOANV_Click(object sender, EventArgs e)
+        {
+            string query;
+
+            if (MessageBox.Show("bạn có muốn xóa nhân viên này hay không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                query = "Delete NV where MA_NV = '" + tB_MANV.Text + "'";
+                ChayLenh(query, Connect);
+                LoadDGVNV();
+                ResetValuesNV();
+            }
+
+            tB_TENNV.Enabled = false;
+            tb_DIACHINV.Enabled = false;
+            tB_CMNDNV.Enabled = false;
+            tB_SDTNV.Enabled = false;
+            tB_MATKHAU.Enabled = false;
+            rTB_CHUCVUNV.Enabled = false;
+            tB_TENDANGNHAP.Enabled = false;
+            bt_MoAnhNV.Enabled = false;
+            bt_LUUNV.Enabled = false;
+            rB_NAM.Enabled = false;
+            rB_NU.Enabled = false;
+            bt_SUANV.Enabled = true;
+            bt_XOANV.Enabled = true;
+            bt_HUYNV.Enabled = false;
+            bt_THEMNV.Enabled = true;
+        }
+
+        private void dGV_SP_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dGV_NV_Click_1(object sender, EventArgs e)
+        {
+            if (bt_THEMNV.Enabled == false)
+            {
+                MessageBox.Show("Bạn đang ở trạng thái thêm mới.", "Thống báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tB_TENNV.Focus();
+                return;
+            }
+
+            if (DTNV.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            tB_MANV.Text = dGV_NV.CurrentRow.Cells["Mã nhân viên"].Value.ToString();
+            tB_TENNV.Text = dGV_NV.CurrentRow.Cells["Tên nhân viên"].Value.ToString();
+            if (dGV_NV.CurrentRow.Cells["Giới tính"].Value.ToString() == "Nam")
+                rB_NAM.Checked = true;
+            else rB_NU.Checked = true;
+            tb_DIACHINV.Text = dGV_NV.CurrentRow.Cells["Địa chỉ"].Value.ToString();
+            rTB_CHUCVUNV.Text = dGV_NV.CurrentRow.Cells["Chức vụ"].Value.ToString();
+            tB_SDTNV.Text = dGV_NV.CurrentRow.Cells["Số điện thoại"].Value.ToString();
+            tB_CMNDNV.Text = dGV_NV.CurrentRow.Cells["Chứng minh thư"].Value.ToString();
+            rTB_HINHANHNV.Text = dGV_NV.CurrentRow.Cells["Hình ảnh"].Value.ToString();
+            tB_TENDANGNHAP.Text = dGV_NV.CurrentRow.Cells["Tên đăng nhập"].Value.ToString();
+            tB_MATKHAU.Text = dGV_NV.CurrentRow.Cells["Mật khẩu"].Value.ToString();
+            //if (rTB_HINHANHNV.Text.Length > 0)
+                //pB_NV.Image = Image.FromFile(rTB_HINHANHNV.Text);
+            //else pB_SP.Image = null;
+            bt_SUANV.Enabled = true;
+            bt_XOANV.Enabled = true;
+            bt_MoAnhNV.Enabled = true;
+            tB_TENNV.Enabled = false;
+            tb_DIACHINV.Enabled = true;
+            tB_CMNDNV.Enabled = false;
+            tB_SDTNV.Enabled = true;
+            tB_MATKHAU.Enabled = true;
+            rTB_CHUCVUNV.Enabled = true;
+            tB_TENDANGNHAP.Enabled = true;
+            rB_NAM.Enabled = true;
+            rB_NU.Enabled = true;
+        }
+
+        private void dGV_NV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
