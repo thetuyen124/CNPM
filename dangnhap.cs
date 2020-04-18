@@ -18,7 +18,7 @@ namespace CNPM
         string chucvu;//chức vụ nhân viên đăng nhập
 
 
-        private string StringConnect = @"Data Source=ARIS-HOANG\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
+        private string StringConnect = "Data Source=DESKTOP-R9IA4BP\\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
         private SqlConnection Connect = null;
         public dangnhap()
         {
