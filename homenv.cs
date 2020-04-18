@@ -54,15 +54,8 @@ namespace CNPM
 
         private void thêmNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form a = new nvthemkhachhang();
+            Form a = new nvKH(StringConnect);
             a.Show();
-        }
-
-        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form a = new dangnhap();
-            a.Show();
-            this.Hide();
         }
         private void updatecbtenhang()
         {
@@ -162,7 +155,7 @@ namespace CNPM
             DTNV = LayDuLieuRaBang(query1, StringConnect);
             if (DTNV != null)
             {
-                string a = DTNV.Rows[1]["MA_CAUHOI"].ToString();
+                string a = DTNV.Rows[0]["MA_CAUHOI"].ToString();
                 query = "Select CAUHOI, TRALOI from NV_CAUHOI, CAUHOIBAOMAT where NV_CAUHOI.MA_CAUHOI = CAUHOIBAOMAT.MA_CAUHOI and MA_NV = " + ma + " and NV_CAUHOI.MA_CAUHOI = " + a + "";
                 DTNV = LayDuLieuRaBang(query, StringConnect);
                 if (DTNV != null)
@@ -319,6 +312,19 @@ namespace CNPM
             b_CapNhatTK.Enabled = true;
             b_LuuTK.Enabled = false;
             b_HuyTK.Enabled = false;
+        }
+
+        private void nhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form a = new nvNCC(StringConnect);
+            a.Show();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form a = new dangnhap();
+            a.Show();
+            this.Hide();
         }
     }
 }

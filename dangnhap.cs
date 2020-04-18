@@ -20,7 +20,7 @@ namespace CNPM
 
         //lỗi ở đây thì sửa cái StringConect 
 
-        private string StringConnect = @"Data Source=ARIS-HOANG\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
+        private string StringConnect = @"Data Source=THETUYEN\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
         private SqlConnection Connect = null;
         public dangnhap()
         {
@@ -55,13 +55,19 @@ namespace CNPM
                 }
                 else
                 {
-                    Form a = new homenv(ten,StringConnect, ma);
+                    Form a = new homenv(ten, StringConnect, ma);
                     a.Show();
                     this.Hide();
                 }
             }
             else
+            {
                 loadtkmk();
+                if (dem >= 3)
+                    quenmatkhau.Show();
+                if (dem >= 5)
+                    btdangnhap.Enabled = false;
+            }
         }
 
         private void dangnhap_FormClosed(object sender, FormClosedEventArgs e)
@@ -105,7 +111,7 @@ namespace CNPM
                 {
                     dem = dr["PASS"].ToString();
                 }
-                if (dem != tbmatkhau.Text)
+                if (dem != mk)
                 {
                     MessageBox.Show("Mật khẩu không chính xác", "Warning", MessageBoxButtons.OK);
                     sai++;
