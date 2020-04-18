@@ -73,7 +73,7 @@
             this.tableLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 2);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
@@ -96,7 +96,7 @@
             // TBtenNCC
             // 
             this.TBtenNCC.Location = new System.Drawing.Point(197, 4);
-            this.TBtenNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBtenNCC.Margin = new System.Windows.Forms.Padding(4);
             this.TBtenNCC.Name = "TBtenNCC";
             this.TBtenNCC.Size = new System.Drawing.Size(183, 22);
             this.TBtenNCC.TabIndex = 7;
@@ -104,7 +104,7 @@
             // TBsdtNCC
             // 
             this.TBsdtNCC.Location = new System.Drawing.Point(667, 4);
-            this.TBsdtNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBsdtNCC.Margin = new System.Windows.Forms.Padding(4);
             this.TBsdtNCC.Name = "TBsdtNCC";
             this.TBsdtNCC.Size = new System.Drawing.Size(206, 22);
             this.TBsdtNCC.TabIndex = 12;
@@ -134,7 +134,7 @@
             // TBwebNCC
             // 
             this.TBwebNCC.Location = new System.Drawing.Point(667, 82);
-            this.TBwebNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBwebNCC.Margin = new System.Windows.Forms.Padding(4);
             this.TBwebNCC.Name = "TBwebNCC";
             this.TBwebNCC.Size = new System.Drawing.Size(206, 22);
             this.TBwebNCC.TabIndex = 11;
@@ -142,7 +142,7 @@
             // TBdiachiNCC
             // 
             this.TBdiachiNCC.Location = new System.Drawing.Point(197, 82);
-            this.TBdiachiNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBdiachiNCC.Margin = new System.Windows.Forms.Padding(4);
             this.TBdiachiNCC.Name = "TBdiachiNCC";
             this.TBdiachiNCC.Size = new System.Drawing.Size(183, 22);
             this.TBdiachiNCC.TabIndex = 9;
@@ -166,7 +166,7 @@
             this.BangNCC.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.BangNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.BangNCC.Location = new System.Drawing.Point(4, 126);
-            this.BangNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BangNCC.Margin = new System.Windows.Forms.Padding(4);
             this.BangNCC.Name = "BangNCC";
             this.BangNCC.RowHeadersWidth = 51;
             this.BangNCC.Size = new System.Drawing.Size(875, 430);
@@ -191,7 +191,7 @@
             this.tableLayoutPanel2.Controls.Add(this.LuuNCC, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.ResetNCC, 3, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 559);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -202,7 +202,7 @@
             // 
             this.DongNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DongNCC.Location = new System.Drawing.Point(704, 4);
-            this.DongNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DongNCC.Margin = new System.Windows.Forms.Padding(4);
             this.DongNCC.Name = "DongNCC";
             this.DongNCC.Size = new System.Drawing.Size(100, 28);
             this.DongNCC.TabIndex = 26;
@@ -213,7 +213,7 @@
             // 
             this.ThemNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ThemNCC.Location = new System.Drawing.Point(4, 4);
-            this.ThemNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ThemNCC.Margin = new System.Windows.Forms.Padding(4);
             this.ThemNCC.Name = "ThemNCC";
             this.ThemNCC.Size = new System.Drawing.Size(100, 28);
             this.ThemNCC.TabIndex = 13;
@@ -224,7 +224,7 @@
             // 
             this.SuaNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SuaNCC.Location = new System.Drawing.Point(179, 4);
-            this.SuaNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SuaNCC.Margin = new System.Windows.Forms.Padding(4);
             this.SuaNCC.Name = "SuaNCC";
             this.SuaNCC.Size = new System.Drawing.Size(100, 28);
             this.SuaNCC.TabIndex = 14;
@@ -235,7 +235,7 @@
             // 
             this.LuuNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LuuNCC.Location = new System.Drawing.Point(354, 4);
-            this.LuuNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LuuNCC.Margin = new System.Windows.Forms.Padding(4);
             this.LuuNCC.Name = "LuuNCC";
             this.LuuNCC.Size = new System.Drawing.Size(100, 28);
             this.LuuNCC.TabIndex = 16;
@@ -246,7 +246,7 @@
             // 
             this.ResetNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResetNCC.Location = new System.Drawing.Point(529, 4);
-            this.ResetNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ResetNCC.Margin = new System.Windows.Forms.Padding(4);
             this.ResetNCC.Name = "ResetNCC";
             this.ResetNCC.Size = new System.Drawing.Size(100, 28);
             this.ResetNCC.TabIndex = 17;
@@ -263,6 +263,8 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "nvNCC";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhà Cung Cấp";
