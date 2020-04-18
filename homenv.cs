@@ -64,5 +64,10 @@ namespace CNPM
         {
 
         }
+
+        private void btthem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

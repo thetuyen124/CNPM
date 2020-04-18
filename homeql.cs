@@ -13,7 +13,8 @@ namespace CNPM
 {
     public partial class homeql : Form
     {
-        private string StringConnect = "Data Source=DESKTOP-R9IA4BP\\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
+        private string StringConnect;
+        
         private SqlConnection Connect = null;
         public homeql(string con):this()
         {
