@@ -1260,5 +1260,53 @@ namespace CNPM
         {
 
         }
+        public void getData()
+        {
+            string query = "Select TEN_NCC, SP.TEN_SP,GIANHAP,SOLUONG from NCC JOIN SP ON NCC.MA_NCC = SP.MA_NCC;";
+            SqlDataAdapter apt = new SqlDataAdapter(query, Connect);
+            DataTable tb = new DataTable();
+            apt.Fill(tb);
+            dataGridView1.DataSource = tb;
+
+            for (int i = 0; i < 50; i++)
+            {
+                DomainUpDown.DomainUpDownItemCollection collect = this.txtSL.Items;
+                collect.Add(i);
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string query = "update SP set SOLUONG  +='" + txtSL.SelectedItem + "' where TEN_SP ='" + txtSP.Text + "'";
+            SqlCommand cmd = new SqlCommand(query, Connect);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Update!");
+            getData();
+        }
+        string extension = ".jpg";
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+
+                txtNCC.Text = row.Cells["TEN_NCC"].Value.ToString();
+                txtSP.Text = row.Cells["TEN_SP"].Value.ToString();
+                txtGN.Text = row.Cells["GIANHAP"].Value.ToString();
+                //txtSL.Text = row.Cells["SOLUONG"].Value.ToString();
+            }
+            pictureBox1.Image = new Bitmap(Application.StartupPath + "\\Resources\\" + txtSP.Text + extension);
+        }
+        public double getMoney(double giaNhap, int soluong)
+        {
+            double tongTien;
+            tongTien = giaNhap * soluong;
+            return tongTien;
+        }
+
+        private void txtSL_SelectedItemChanged(object sender, EventArgs e)
+        {
+            txtTien.Text = Convert.ToString(getMoney(Convert.ToDouble(txtGN.Text), Convert.ToInt32(txtSL.SelectedItem)));
+        }
     }
 }
