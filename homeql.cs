@@ -13,7 +13,7 @@ namespace CNPM
 {
     public partial class homeql : Form
     {
-        private string StringConnect;
+        private string StringConnect = "Data Source=DESKTOP-R9IA4BP\\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
         private SqlConnection Connect = null;
         public homeql(string con):this()
         {
@@ -45,6 +45,7 @@ namespace CNPM
         {
             Connect = new SqlConnection(StringConnect); //Khởi tạo kết nối với đường dẫn StringConnect
             Connect.Open();
+            getData();
         }
 
         private void quảnLýNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
