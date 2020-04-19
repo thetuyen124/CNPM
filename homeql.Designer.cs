@@ -103,19 +103,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtNCC = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtSP = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtGN = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtSL = new System.Windows.Forms.DomainUpDown();
             this.txtTien = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.txtSL = new System.Windows.Forms.DomainUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtGN = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtSP = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtNCC = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.TEN_NCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TEN_SP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GIANHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -132,8 +132,8 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -846,6 +846,127 @@
             this.tabPage15.Text = "Nhập Kho";
             this.tabPage15.UseVisualStyleBackColor = true;
             // 
+            // txtTien
+            // 
+            this.txtTien.Location = new System.Drawing.Point(587, 470);
+            this.txtTien.Name = "txtTien";
+            this.txtTien.ReadOnly = true;
+            this.txtTien.Size = new System.Drawing.Size(173, 26);
+            this.txtTien.TabIndex = 12;
+            this.txtTien.TextChanged += new System.EventHandler(this.txtTien_TextChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(444, 470);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(104, 22);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "Thành Tiền:";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // txtSL
+            // 
+            this.txtSL.Location = new System.Drawing.Point(587, 419);
+            this.txtSL.Name = "txtSL";
+            this.txtSL.Size = new System.Drawing.Size(68, 26);
+            this.txtSL.TabIndex = 10;
+            this.txtSL.Text = "0";
+            this.txtSL.SelectedItemChanged += new System.EventHandler(this.txtSL_SelectedItemChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(444, 419);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(93, 22);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Số Lượng:";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // txtGN
+            // 
+            this.txtGN.Location = new System.Drawing.Point(587, 377);
+            this.txtGN.Name = "txtGN";
+            this.txtGN.ReadOnly = true;
+            this.txtGN.Size = new System.Drawing.Size(116, 26);
+            this.txtGN.TabIndex = 8;
+            this.txtGN.TextChanged += new System.EventHandler(this.txtGN_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(444, 377);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(92, 22);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Giá Nhập:";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // txtSP
+            // 
+            this.txtSP.Location = new System.Drawing.Point(587, 336);
+            this.txtSP.Name = "txtSP";
+            this.txtSP.ReadOnly = true;
+            this.txtSP.Size = new System.Drawing.Size(215, 26);
+            this.txtSP.TabIndex = 6;
+            this.txtSP.TextChanged += new System.EventHandler(this.txtSP_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(444, 336);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(93, 22);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Sản Phẩm:";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CNPM.Properties.Resources.icon;
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(8, 278);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(418, 289);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(448, 531);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 36);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Xác Nhận";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtNCC
+            // 
+            this.txtNCC.Location = new System.Drawing.Point(587, 294);
+            this.txtNCC.Name = "txtNCC";
+            this.txtNCC.ReadOnly = true;
+            this.txtNCC.Size = new System.Drawing.Size(252, 26);
+            this.txtNCC.TabIndex = 2;
+            this.txtNCC.TextChanged += new System.EventHandler(this.txtNCC_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(444, 294);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(130, 22);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Nhà Cung Cấp:";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -861,127 +982,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(870, 266);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(432, 334);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(130, 22);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Nhà Cung Cấp:";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // txtNCC
-            // 
-            this.txtNCC.Location = new System.Drawing.Point(575, 334);
-            this.txtNCC.Name = "txtNCC";
-            this.txtNCC.ReadOnly = true;
-            this.txtNCC.Size = new System.Drawing.Size(252, 26);
-            this.txtNCC.TabIndex = 2;
-            this.txtNCC.TextChanged += new System.EventHandler(this.txtNCC_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(436, 549);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 36);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Xác Nhận";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CNPM.Properties.Resources.icon;
-            this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(8, 296);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(418, 289);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
-            // txtSP
-            // 
-            this.txtSP.Location = new System.Drawing.Point(575, 376);
-            this.txtSP.Name = "txtSP";
-            this.txtSP.ReadOnly = true;
-            this.txtSP.Size = new System.Drawing.Size(215, 26);
-            this.txtSP.TabIndex = 6;
-            this.txtSP.TextChanged += new System.EventHandler(this.txtSP_TextChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(432, 376);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(93, 22);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Sản Phẩm:";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
-            // txtGN
-            // 
-            this.txtGN.Location = new System.Drawing.Point(575, 417);
-            this.txtGN.Name = "txtGN";
-            this.txtGN.ReadOnly = true;
-            this.txtGN.Size = new System.Drawing.Size(116, 26);
-            this.txtGN.TabIndex = 8;
-            this.txtGN.TextChanged += new System.EventHandler(this.txtGN_TextChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(432, 417);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(92, 22);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Giá Nhập:";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(432, 459);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(93, 22);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "Số Lượng:";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
-            // 
-            // txtSL
-            // 
-            this.txtSL.Location = new System.Drawing.Point(575, 459);
-            this.txtSL.Name = "txtSL";
-            this.txtSL.Size = new System.Drawing.Size(68, 26);
-            this.txtSL.TabIndex = 10;
-            this.txtSL.Text = "0";
-            this.txtSL.SelectedItemChanged += new System.EventHandler(this.txtSL_SelectedItemChanged);
-            // 
-            // txtTien
-            // 
-            this.txtTien.Location = new System.Drawing.Point(575, 510);
-            this.txtTien.Name = "txtTien";
-            this.txtTien.ReadOnly = true;
-            this.txtTien.Size = new System.Drawing.Size(173, 26);
-            this.txtTien.TabIndex = 12;
-            this.txtTien.TextChanged += new System.EventHandler(this.txtTien_TextChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(432, 510);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(104, 22);
-            this.label15.TabIndex = 11;
-            this.label15.Text = "Thành Tiền:";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // TEN_NCC
             // 
@@ -1042,8 +1042,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage15.ResumeLayout(false);
             this.tabPage15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
