@@ -440,9 +440,10 @@
             this.dGV_NCC.Name = "dGV_NCC";
             this.dGV_NCC.ReadOnly = true;
             this.dGV_NCC.RowHeadersWidth = 51;
-            this.dGV_NCC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullColumnSelect;
+            this.dGV_NCC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGV_NCC.Size = new System.Drawing.Size(978, 447);
             this.dGV_NCC.TabIndex = 32;
+            this.dGV_NCC.Click += new System.EventHandler(this.dGV_NCC_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -483,6 +484,7 @@
             this.b_ThemNCC.TabIndex = 13;
             this.b_ThemNCC.Text = "Thêm";
             this.b_ThemNCC.UseVisualStyleBackColor = true;
+            this.b_ThemNCC.Click += new System.EventHandler(this.b_ThemNCC_Click);
             // 
             // b_HuyNCC
             // 
@@ -495,6 +497,7 @@
             this.b_HuyNCC.TabIndex = 17;
             this.b_HuyNCC.Text = "Hủy bỏ";
             this.b_HuyNCC.UseVisualStyleBackColor = true;
+            this.b_HuyNCC.Click += new System.EventHandler(this.b_HuyNCC_Click);
             // 
             // b_SuaNCC
             // 
@@ -507,6 +510,7 @@
             this.b_SuaNCC.TabIndex = 29;
             this.b_SuaNCC.Text = "Sửa";
             this.b_SuaNCC.UseVisualStyleBackColor = true;
+            this.b_SuaNCC.Click += new System.EventHandler(this.b_SuaNCC_Click);
             // 
             // b_LuuNCC
             // 
@@ -519,6 +523,7 @@
             this.b_LuuNCC.TabIndex = 16;
             this.b_LuuNCC.Text = "Lưu";
             this.b_LuuNCC.UseVisualStyleBackColor = true;
+            this.b_LuuNCC.Click += new System.EventHandler(this.b_LuuNCC_Click);
             // 
             // b_XoaNCC
             // 
@@ -531,6 +536,7 @@
             this.b_XoaNCC.TabIndex = 14;
             this.b_XoaNCC.Text = "Xóa";
             this.b_XoaNCC.UseVisualStyleBackColor = true;
+            this.b_XoaNCC.Click += new System.EventHandler(this.b_XoaNCC_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -785,7 +791,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.125677F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.21777F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.93608F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
             this.tableLayoutPanel6.Controls.Add(this.TBghichuKH, 4, 5);
             this.tableLayoutPanel6.Controls.Add(this.TBcmtKH, 4, 3);
             this.tableLayoutPanel6.Controls.Add(this.TBsdtKH, 4, 1);
@@ -818,28 +824,28 @@
             // TBghichuKH
             // 
             this.TBghichuKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBghichuKH.Location = new System.Drawing.Point(615, 91);
+            this.TBghichuKH.Location = new System.Drawing.Point(612, 91);
             this.TBghichuKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBghichuKH.Name = "TBghichuKH";
-            this.TBghichuKH.Size = new System.Drawing.Size(292, 24);
+            this.TBghichuKH.Size = new System.Drawing.Size(291, 24);
             this.TBghichuKH.TabIndex = 10;
             // 
             // TBcmtKH
             // 
             this.TBcmtKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBcmtKH.Location = new System.Drawing.Point(615, 50);
+            this.TBcmtKH.Location = new System.Drawing.Point(612, 50);
             this.TBcmtKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBcmtKH.Name = "TBcmtKH";
-            this.TBcmtKH.Size = new System.Drawing.Size(292, 24);
+            this.TBcmtKH.Size = new System.Drawing.Size(291, 24);
             this.TBcmtKH.TabIndex = 11;
             // 
             // TBsdtKH
             // 
             this.TBsdtKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBsdtKH.Location = new System.Drawing.Point(615, 9);
+            this.TBsdtKH.Location = new System.Drawing.Point(612, 9);
             this.TBsdtKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBsdtKH.Name = "TBsdtKH";
-            this.TBsdtKH.Size = new System.Drawing.Size(292, 24);
+            this.TBsdtKH.Size = new System.Drawing.Size(291, 24);
             this.TBsdtKH.TabIndex = 12;
             // 
             // label15
@@ -862,7 +868,7 @@
             this.TBmaKH.Location = new System.Drawing.Point(140, 9);
             this.TBmaKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBmaKH.Name = "TBmaKH";
-            this.TBmaKH.Size = new System.Drawing.Size(273, 24);
+            this.TBmaKH.Size = new System.Drawing.Size(271, 24);
             this.TBmaKH.TabIndex = 7;
             // 
             // label19
@@ -870,7 +876,7 @@
             this.label19.AutoSize = true;
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(495, 46);
+            this.label19.Location = new System.Drawing.Point(492, 46);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(112, 28);
@@ -897,7 +903,7 @@
             this.TBtenKH.Location = new System.Drawing.Point(140, 50);
             this.TBtenKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBtenKH.Name = "TBtenKH";
-            this.TBtenKH.Size = new System.Drawing.Size(273, 24);
+            this.TBtenKH.Size = new System.Drawing.Size(271, 24);
             this.TBtenKH.TabIndex = 9;
             // 
             // TBdiachiKH
@@ -906,7 +912,7 @@
             this.TBdiachiKH.Location = new System.Drawing.Point(140, 91);
             this.TBdiachiKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBdiachiKH.Name = "TBdiachiKH";
-            this.TBdiachiKH.Size = new System.Drawing.Size(273, 24);
+            this.TBdiachiKH.Size = new System.Drawing.Size(271, 24);
             this.TBdiachiKH.TabIndex = 8;
             // 
             // label17
@@ -927,7 +933,7 @@
             this.label18.AutoSize = true;
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(495, 5);
+            this.label18.Location = new System.Drawing.Point(492, 5);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(112, 32);
@@ -941,7 +947,7 @@
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label20.Location = new System.Drawing.Point(495, 87);
+            this.label20.Location = new System.Drawing.Point(492, 87);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(112, 31);

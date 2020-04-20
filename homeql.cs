@@ -581,171 +581,7 @@ namespace CNPM
 
         //======= KẾT THÚC PHẦN HOÀNG LÀM :> =======//
 
-        //Phần Thái Làm//
-        
-
-        private void LoadDGVNCC()
-        {
-            string query = "Select TEN_NCC as [Tên nhà cung cấp], DIACHI_NCC as [Địa chỉ], SDT_NCC as [Số điện thoại], WebSupp as [Website] from NCC";
-            DTNCC = CNPM.DataConnection.GetDataToTable(query);
-            BangNCC.DataSource = DTNCC;
-        }
-
-        private void BangNCC_Click(object sender, EventArgs e)
-        {
-            if (ThemNCC.Enabled == false)
-            {
-                MessageBox.Show("Bạn đang ở trạng thái thêm mới.", "Thống báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TBtenNCC.Focus();
-                return;
-            }
-
-            if (DTNCC.Rows.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            TBtenNCC.Text = BangNCC.CurrentRow.Cells["Tên nhà cung cấp"].Value.ToString();
-            TBdiachiNCC.Text = BangNCC.CurrentRow.Cells["Địa chỉ"].Value.ToString();
-            TBsdtNCC.Text = BangNCC.CurrentRow.Cells["Số điện thoại"].Value.ToString();
-            TBwebNCC.Text = BangNCC.CurrentRow.Cells["Website"].Value.ToString();
-
-            XoaNCC.Enabled = true;
-            XoaNCC.Enabled = true;
-            TBdiachiNCC.Enabled = true;
-            TBsdtNCC.Enabled = true;
-            TBwebNCC.Enabled = true;
-        }
-
-        private void ResetValuesNCC()
-        {
-            TBtenNCC.Text = "";
-            TBdiachiNCC.Text = "";
-            TBsdtNCC.Text = "";
-            TBwebNCC.Text = "";
-            XoaNCC.Enabled = false;
-            XoaNCC.Enabled = false;
-        }
-
-        private void ThemNCC_Click(object sender, EventArgs e)
-        {
-            XoaNCC.Enabled = false;
-            XoaNCC.Enabled = false;
-            LuuNCC.Enabled = true;
-            ThemNCC.Enabled = false;
-            ResetValuesNCC();
-            TBtenNCC.Enabled = true;
-            TBdiachiNCC.Enabled = true;
-            TBsdtNCC.Enabled = true;
-            TBwebNCC.Enabled = true;
-            TBtenNCC.Focus();
-        }
-
-        private void LuuNCC_Click(object sender, EventArgs e)
-        {
-            string sql;
-            if (TBtenNCC.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn chưa nhập tên nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TBtenNCC.Focus();
-                return;
-            }
-
-            sql = "Select TEN_NCC from NCC where TEN_NCC = N'" + TBtenNCC.Text.Trim() + "'";
-
-            if (CNPM.DataConnection.CheckKey(sql))
-            {
-                MessageBox.Show("Nhà cung cấp này đã có sẵn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TBtenNCC.Focus();
-                return;
-            }
-            // Insert trong sql //
-            sql = "Insert into NCC(TEN_NCC, DIACHI_NCC, SDT_NCC, WebSupp) values (N'" + TBtenNCC.Text + "', N'" + TBdiachiNCC.Text + "', '" + TBsdtNCC.Text + "', '" + TBwebNCC.Text + "')";
-            CNPM.DataConnection.RunSql(sql);   //Thực hiện câu lệnh sql.
-            LoadDGVNCC(); //Cập nhật lại DataGridView.
-            ResetValuesNCC();
-            ThemNCC.Enabled = true;
-            TBtenNCC.Enabled = false;
-            TBdiachiNCC.Enabled = false;
-            TBsdtNCC.Enabled = false;
-            TBwebNCC.Enabled = false;
-            LuuNCC.Enabled = false;
-            XoaNCC.Enabled = false;
-            XoaNCC.Enabled = false;
-        }
-
-        private void XoaNCC_Click(object sender, EventArgs e)
-        {
-            string sql;
-            if (DTNCC.Rows.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            //Nếu chưa chọn bản ghi nào.
-            if (TBtenNCC.Text == "")
-            {
-                MessageBox.Show("Không có bản ghi trong bộ nhớ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (MessageBox.Show("bạn có muốn xóa hay không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                //Delete trong sql//
-                sql = "Delete NCC where TEN_NCC = N'" + TBtenNCC.Text + "'";
-                CNPM.DataConnection.RunSqlDel(sql);
-                LoadDGVNCC();
-                ResetValuesNCC();
-            }
-        }
-
-        private void SuaNCC_Click(object sender, EventArgs e)
-        {
-            string sql;
-            if (DTNCC.Rows.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (TBtenNCC.Text == "")
-            {
-                MessageBox.Show("Bạn phải chọn bản ghi cần sửa", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (TBtenNCC.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập tên khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TBtenNCC.Focus();
-                return;
-            }
-            //update trong sql//
-            sql = "Update NCC set DIACHI_NCC = N'" + TBdiachiNCC.Text.Trim().ToString() + "', SDT_NCC =  '" + TBsdtNCC.Text.Trim().ToString() + "', WebSupp = '"
-                + TBwebNCC.Text.Trim().ToString() + "' where TEN_NCC = N'" + TBtenNCC.Text.Trim().ToString() + "'";
-            CNPM.DataConnection.RunSql(sql);
-            LoadDGVNCC();
-            ResetValuesNCC();
-            TBdiachiNCC.Enabled = false;
-            TBsdtNCC.Enabled = false;
-            TBwebNCC.Enabled = false;
-        }
-
-        private void ResetNCC_Click(object sender, EventArgs e)
-        {
-            ResetValuesNCC();
-            TBtenNCC.Enabled = false;
-            TBdiachiNCC.Enabled = false;
-            TBwebNCC.Enabled = false;
-            TBsdtNCC.Enabled = false;
-            ResetNCC.Enabled = false;
-            LuuNCC.Enabled = false;
-            SuaNCC.Enabled = false;
-            ThemNCC.Enabled = true;
-        }
-
+        // phần vinh làm//
         private void bt_HuyNV_Click(object sender, EventArgs e)
         {
             ResetValuesNV();
@@ -1050,7 +886,7 @@ namespace CNPM
             MessageBox.Show("Update!");
             getData();
         }
-        //string extension = ".jpg";
+        string extension = ".jpg";
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1147,6 +983,7 @@ namespace CNPM
 
         private void b_ThemKH_Click(object sender, EventArgs e)
         {
+            b_ThemKH.Enabled = false;
             TBtenKH.Enabled = true;
             TBdiachiKH.Enabled = true;
             TBcmtKH.Enabled = true;
@@ -1285,5 +1122,169 @@ namespace CNPM
             DTNCC = LayDuLieuRaBang(query, StringConnect);
             dGV_NCC.DataSource = DTNCC;
         }
+
+        private void dGV_NCC_Click(object sender, EventArgs e)
+        {
+            if (b_ThemNCC.Enabled == false)
+            {
+                MessageBox.Show("Bạn đang ở trạng thái thêm mới.", "Thống báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TBtenNCC.Focus();
+                return;
+            }
+
+            if (DTNCC.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            TBtenNCC.Text = dGV_NCC.CurrentRow.Cells["Tên nhà cung cấp"].Value.ToString();
+            TBdiachiNCC.Text = dGV_NCC.CurrentRow.Cells["Địa chỉ"].Value.ToString();
+            TBsdtNCC.Text = dGV_NCC.CurrentRow.Cells["Số điện thoại"].Value.ToString();
+            TBwebNCC.Text = dGV_NCC.CurrentRow.Cells["Website"].Value.ToString();
+
+            b_XoaNCC.Enabled = true;
+            b_SuaNCC.Enabled = true;
+            b_HuyNCC.Enabled = true;
+            TBdiachiNCC.Enabled = true;
+            TBsdtNCC.Enabled = true;
+            TBwebNCC.Enabled = true;
+        }
+
+        private void ResetValuesNCC()
+        {
+            TBtenNCC.Text = "";
+            TBdiachiNCC.Text = "";
+            TBsdtNCC.Text = "";
+            TBwebNCC.Text = "";
+            b_XoaNCC.Enabled = false;
+            b_SuaNCC.Enabled = false;
+        }
+
+        private void b_HuyNCC_Click(object sender, EventArgs e)
+        {
+            ResetValuesNCC();
+            TBtenNCC.Enabled = false;
+            TBdiachiNCC.Enabled = false;
+            TBwebNCC.Enabled = false;
+            TBsdtNCC.Enabled = false;
+            b_HuyNCC.Enabled = false;
+            b_LuuNCC.Enabled = false;
+            b_SuaNCC.Enabled = false;
+            b_ThemNCC.Enabled = true;
+        }
+
+        private void b_ThemNCC_Click(object sender, EventArgs e)
+        {
+
+            b_XoaNCC.Enabled = false;
+            b_SuaNCC.Enabled = false;
+            b_LuuNCC.Enabled = true;
+            b_ThemNCC.Enabled = false;
+            ResetValuesNCC();
+            TBtenNCC.Enabled = true;
+            TBdiachiNCC.Enabled = true;
+            TBsdtNCC.Enabled = true;
+            TBwebNCC.Enabled = true;
+            TBtenNCC.Focus();
+            b_HuyNCC.Enabled = true;
+        }
+
+        private void b_SuaNCC_Click(object sender, EventArgs e)
+        {
+            string query;
+            if (DTNCC.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (TBtenNCC.Text == "")
+            {
+                MessageBox.Show("Bạn phải chọn bản ghi cần sửa", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (TBtenNCC.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập tên khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TBtenNCC.Focus();
+                return;
+            }
+            //update trong sql//
+            query = "Update NCC set DIACHI_NCC = N'" + TBdiachiNCC.Text.Trim().ToString() + "', SDT_NCC =  '" + TBsdtNCC.Text.Trim().ToString() + "', WEB_NCC = '"
+                + TBwebNCC.Text.Trim().ToString() + "' where TEN_NCC = N'" + TBtenNCC.Text.Trim().ToString() + "'";
+            ChayLenh(query, Connect);
+            LoadDGVNCC();
+            ResetValuesNCC();
+            TBdiachiNCC.Enabled = false;
+            TBsdtNCC.Enabled = false;
+            TBwebNCC.Enabled = false;
+            b_HuyNCC.Enabled = false;
+            b_SuaNCC.Enabled = false;
+        }
+
+        private void b_XoaNCC_Click(object sender, EventArgs e)
+        {
+            string sql;
+            if (DTNCC.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //Nếu chưa chọn bản ghi nào.
+            if (TBtenNCC.Text == "")
+            {
+                MessageBox.Show("Không có bản ghi trong bộ nhớ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (MessageBox.Show("bạn có muốn xóa hay không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //Delete trong sql//
+                sql = "Delete NCC where TEN_NCC = N'" + TBtenNCC.Text + "'";
+                ChayLenhXoa(sql, Connect);
+                LoadDGVNCC();
+                ResetValuesNCC();
+                b_SuaNCC.Enabled = false;
+                b_HuyNCC.Enabled = false;
+            }
+        }
+
+        private void b_LuuNCC_Click(object sender, EventArgs e)
+        {
+            string query;
+            if (TBtenNCC.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập tên nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TBtenNCC.Focus();
+                return;
+            }
+
+            query = "Select TEN_NCC from NCC where TEN_NCC = N'" + TBtenNCC.Text.Trim() + "'";
+
+            if (KiemTraMa(query, StringConnect))
+            {
+                MessageBox.Show("Nhà cung cấp này đã có sẵn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TBtenNCC.Focus();
+                return;
+            }
+            // Insert trong sql //
+            query = "Insert into NCC(TEN_NCC, DIACHI_NCC, SDT_NCC, WEB_NCC) values (N'" + TBtenNCC.Text + "', N'" + TBdiachiNCC.Text + "', '" + TBsdtNCC.Text + "', '" + TBwebNCC.Text + "')";
+            ChayLenh(query, Connect);   //Thực hiện câu lệnh sql.
+            LoadDGVNCC(); //Cập nhật lại DataGridView.
+            ResetValuesNCC();
+            b_ThemNCC.Enabled = true;
+            TBtenNCC.Enabled = false;
+            TBdiachiNCC.Enabled = false;
+            TBsdtNCC.Enabled = false;
+            TBwebNCC.Enabled = false;
+            b_LuuNCC.Enabled = false;
+            b_XoaNCC.Enabled = false;
+            b_HuyNCC.Enabled = false;
+            b_XoaNCC.Enabled = false;
+        }
     }
 }
+
