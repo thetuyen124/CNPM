@@ -399,6 +399,7 @@ namespace CNPM
         private void reset()
         {
             dgvgiohang.Rows.Clear();
+            lbtongtien.Text = "0";
         }
     }
 }

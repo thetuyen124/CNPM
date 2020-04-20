@@ -1283,7 +1283,7 @@ namespace CNPM
             MessageBox.Show("Update!");
             getData();
         }
-        string extension = ".jpg";
+        //string extension = ".jpg";
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1294,9 +1294,9 @@ namespace CNPM
                 txtNCC.Text = row.Cells["TEN_NCC"].Value.ToString();
                 txtSP.Text = row.Cells["TEN_SP"].Value.ToString();
                 txtGN.Text = row.Cells["GIANHAP"].Value.ToString();
-                //txtSL.Text = row.Cells["SOLUONG"].Value.ToString();
+                txtSL.Text = row.Cells["SOLUONG"].Value.ToString();
             }
-            pictureBox1.Image = new Bitmap(Application.StartupPath + "\\Resources\\" + txtSP.Text + extension);
+        //    pictureBox1.Image = new Bitmap(Application.StartupPath + "\\Resources\\" + txtSP.Text + extension);
         }
         public double getMoney(double giaNhap, int soluong)
         {
@@ -1307,7 +1307,7 @@ namespace CNPM
 
         private void txtSL_SelectedItemChanged(object sender, EventArgs e)
         {
-            txtTien.Text = Convert.ToString(getMoney(Convert.ToDouble(txtGN.Text), Convert.ToInt32(txtSL.SelectedItem)));
+            txtTien.Text = Convert.ToString(getMoney(Convert.ToDouble(txtGN.Text), Convert.ToInt32(txtSL.Text)));
         }
     }
 }
