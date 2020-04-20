@@ -82,13 +82,13 @@ namespace CNPM
 
         private void thêmKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form a = new nvKH();
+            Form a = new nvKH(StringConnect);
             a.Show();
         }
 
         private void xóaKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form a = new nvNCC();
+            Form a = new nvNCC(StringConnect);
             a.Show();
         }
 
