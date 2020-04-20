@@ -315,6 +315,7 @@ namespace CNPM
             else return false;
         }
 
+        //Hàm chạy lệnh
         private static void ChayLenh(string query, SqlConnection con)
         {
             SqlCommand Cmd;
