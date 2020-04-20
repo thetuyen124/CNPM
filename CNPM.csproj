@@ -52,7 +52,6 @@
     <Compile Include="dangnhap.Designer.cs">
       <DependentUpon>dangnhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataConnection.cs" />
     <Compile Include="hoadon.cs">
       <SubType>Form</SubType>
     </Compile>
