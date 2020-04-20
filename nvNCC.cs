@@ -37,10 +37,10 @@ namespace CNPM
 
         private void LoadDGVNCC()
         {
-            //select trên sql//
-            string query = "Select TEN_NCC as [Tên nhà cung cấp], DIACHI_NCC as [Địa chỉ], SDT_NCC as [Số điện thoại], WEB_NCC as [Website] from NCC";
-            DTNCC = CNPM.DataConnection.GetDataToTable(query);
-            BangNCC.DataSource = DTNCC;
+            ////select trên sql//
+            //string query = "Select TEN_NCC as [Tên nhà cung cấp], DIACHI_NCC as [Địa chỉ], SDT_NCC as [Số điện thoại], WEB_NCC as [Website] from NCC";
+            //DTNCC = CNPM.DataConnection.GetDataToTable(query);
+            //BangNCC.DataSource = DTNCC;
         }
 
         private void BangNCC_Click(object sender, EventArgs e)
@@ -90,64 +90,64 @@ namespace CNPM
 
         private void LuuNCC_Click(object sender, EventArgs e)
         {
-            string sql;
-            if (TBtenNCC.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn chưa nhập tên nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TBtenNCC.Focus();
-                return;
-            }
-            //select trên sql//
-            sql = "Select TEN_NCC from NCC where TEN_NCC = N'" + TBtenNCC.Text.Trim() + "'";
+            //string sql;
+            //if (TBtenNCC.Text.Trim().Length == 0)
+            //{
+            //    MessageBox.Show("Bạn chưa nhập tên nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    TBtenNCC.Focus();
+            //    return;
+            //}
+            ////select trên sql//
+            //sql = "Select TEN_NCC from NCC where TEN_NCC = N'" + TBtenNCC.Text.Trim() + "'";
 
-            if (CNPM.DataConnection.CheckKey(sql))
-            {
-                MessageBox.Show("Nhà cung cấp này đã có sẵn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TBtenNCC.Focus();
-                return;
-            }
-            //insert vào csdl//
-            sql = "Insert into NCC(TEN_NCC, DIACHI_NCC, SDT_NCC, WebSupp) values (N'" + TBtenNCC.Text + "', N'" + TBdiachiNCC.Text + "', '" + TBsdtNCC.Text + "', '" + TBwebNCC.Text + "')";
-            CNPM.DataConnection.RunSql(sql);   //Thực hiện câu lệnh sql.
-            LoadDGVNCC(); //Cập nhật lại DataGridView.
-            ResetValuesNCC();
-            ThemNCC.Enabled = true;
-            TBtenNCC.Enabled = false;
-            TBdiachiNCC.Enabled = false;
-            TBsdtNCC.Enabled = false;
-            TBwebNCC.Enabled = false;
-            LuuNCC.Enabled = false;
+            //if (CNPM.DataConnection.CheckKey(sql))
+            //{
+            //    MessageBox.Show("Nhà cung cấp này đã có sẵn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    TBtenNCC.Focus();
+            //    return;
+            //}
+            ////insert vào csdl//
+            //sql = "Insert into NCC(TEN_NCC, DIACHI_NCC, SDT_NCC, WebSupp) values (N'" + TBtenNCC.Text + "', N'" + TBdiachiNCC.Text + "', '" + TBsdtNCC.Text + "', '" + TBwebNCC.Text + "')";
+            //CNPM.DataConnection.RunSql(sql);   //Thực hiện câu lệnh sql.
+            //LoadDGVNCC(); //Cập nhật lại DataGridView.
+            //ResetValuesNCC();
+            //ThemNCC.Enabled = true;
+            //TBtenNCC.Enabled = false;
+            //TBdiachiNCC.Enabled = false;
+            //TBsdtNCC.Enabled = false;
+            //TBwebNCC.Enabled = false;
+            //LuuNCC.Enabled = false;
         }
         private void SuaNCC_Click(object sender, EventArgs e)
         {
-            string sql;
-            if (DTNCC.Rows.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            //string sql;
+            //if (DTNCC.Rows.Count == 0)
+            //{
+            //    MessageBox.Show("Không có dữ liệu", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return;
+            //}
 
-            if (TBtenNCC.Text == "")
-            {
-                MessageBox.Show("Bạn phải chọn bản ghi cần sửa", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            //if (TBtenNCC.Text == "")
+            //{
+            //    MessageBox.Show("Bạn phải chọn bản ghi cần sửa", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return;
+            //}
 
-            if (TBtenNCC.Text.Trim().Length == 0)
-            {
-                MessageBox.Show("Bạn phải nhập tên khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TBtenNCC.Focus();
-                return;
-            }
-            //chưa có update trong csdl//
-            sql = "Update NCC set DIACHI_NCC = N'" + TBdiachiNCC.Text.Trim().ToString() + "', SDT_NCC =  '" + TBsdtNCC.Text.Trim().ToString() + "', WebSupp = '"
-                + TBwebNCC.Text.Trim().ToString() + "' where TEN_NCC = N'" + TBtenNCC.Text.Trim().ToString() + "'";
-            CNPM.DataConnection.RunSql(sql);
-            LoadDGVNCC();
-            ResetValuesNCC();
-            TBdiachiNCC.Enabled = false;
-            TBsdtNCC.Enabled = false;
-            TBwebNCC.Enabled = false;
+            //if (TBtenNCC.Text.Trim().Length == 0)
+            //{
+            //    MessageBox.Show("Bạn phải nhập tên khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    TBtenNCC.Focus();
+            //    return;
+            //}
+            ////chưa có update trong csdl//
+            //sql = "Update NCC set DIACHI_NCC = N'" + TBdiachiNCC.Text.Trim().ToString() + "', SDT_NCC =  '" + TBsdtNCC.Text.Trim().ToString() + "', WebSupp = '"
+            //    + TBwebNCC.Text.Trim().ToString() + "' where TEN_NCC = N'" + TBtenNCC.Text.Trim().ToString() + "'";
+            //CNPM.DataConnection.RunSql(sql);
+            //LoadDGVNCC();
+            //ResetValuesNCC();
+            //TBdiachiNCC.Enabled = false;
+            //TBsdtNCC.Enabled = false;
+            //TBwebNCC.Enabled = false;
         }
 
         private void ResetNCC_Click(object sender, EventArgs e)

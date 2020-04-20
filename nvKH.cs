@@ -34,6 +34,7 @@ namespace CNPM
             Connect = new SqlConnection(StringConnect); //Khởi tạo kết nối với đường dẫn StringConnect
             Connect.Open();
             TBtenKH.Focus();
+            Form_C_Customer_Load();
         }
 
         DataTable DTKH;

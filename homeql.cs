@@ -848,8 +848,8 @@ namespace CNPM
             tB_TENDANGNHAP.Text = dGV_NV.CurrentRow.Cells["Tên đăng nhập"].Value.ToString();
             tB_MATKHAU.Text = dGV_NV.CurrentRow.Cells["Mật khẩu"].Value.ToString();
             //if (rTB_HINHANHNV.Text.Length > 0)
-                //pB_NV.Image = Image.FromFile(rTB_HINHANHNV.Text);
-            //else pB_SP.Image = null;
+            //    pB_NV.Image = Image.FromFile(rTB_HINHANHNV.Text);
+            //else pB_NV.Image = null;
             bt_SUANV.Enabled = true;
             bt_XOANV.Enabled = true;
             bt_MoAnhNV.Enabled = true;
@@ -887,7 +887,7 @@ namespace CNPM
             MessageBox.Show("Update!");
             getData();
         }
-        string extension = ".jpg";
+        // string extension = ".jpg";
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
