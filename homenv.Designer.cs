@@ -33,6 +33,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.thêmNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nhàCungCấpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -41,19 +42,22 @@
             this.tennhanvien = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btthem = new System.Windows.Forms.Button();
+            this.tableLayoutPanel37 = new System.Windows.Forms.TableLayoutPanel();
             this.cbtenhang = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbsize = new System.Windows.Forms.ComboBox();
             this.dgvsp = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btthanhtoan = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbtongtien = new System.Windows.Forms.Label();
             this.dgvgiohang = new System.Windows.Forms.DataGridView();
             this.tenhang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dongia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -121,13 +125,13 @@
             this.label18 = new System.Windows.Forms.Label();
             this.tableLayoutPanel31 = new System.Windows.Forms.TableLayoutPanel();
             this.tB_UN = new System.Windows.Forms.TextBox();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel37.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsp)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -191,7 +195,7 @@
             this.nhàCungCấpToolStripMenuItem,
             this.đăngXuấtToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 104);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(174, 76);
             // 
             // thêmNhânViênToolStripMenuItem
             // 
@@ -206,6 +210,13 @@
             this.nhàCungCấpToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
             this.nhàCungCấpToolStripMenuItem.Text = "Nhà Cung Cấp";
             this.nhàCungCấpToolStripMenuItem.Click += new System.EventHandler(this.nhàCungCấpToolStripMenuItem_Click);
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // tabPage1
             // 
@@ -231,7 +242,7 @@
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(918, 650);
@@ -296,39 +307,90 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 251F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel3.Controls.Add(this.btthem, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.cbtenhang, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel37, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(912, 46);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(912, 83);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // btthem
             // 
             this.btthem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btthem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btthem.Location = new System.Drawing.Point(664, 2);
+            this.btthem.Location = new System.Drawing.Point(740, 2);
             this.btthem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btthem.Name = "btthem";
-            this.btthem.Size = new System.Drawing.Size(245, 42);
+            this.btthem.Size = new System.Drawing.Size(169, 79);
             this.btthem.TabIndex = 0;
             this.btthem.Text = "Thêm vào giỏ hàng";
             this.btthem.UseVisualStyleBackColor = true;
+            this.btthem.Click += new System.EventHandler(this.btthem_Click);
+            // 
+            // tableLayoutPanel37
+            // 
+            this.tableLayoutPanel37.ColumnCount = 2;
+            this.tableLayoutPanel37.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel37.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel37.Controls.Add(this.cbtenhang, 1, 0);
+            this.tableLayoutPanel37.Controls.Add(this.label5, 0, 0);
+            this.tableLayoutPanel37.Controls.Add(this.label12, 0, 1);
+            this.tableLayoutPanel37.Controls.Add(this.cbsize, 1, 1);
+            this.tableLayoutPanel37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel37.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel37.Name = "tableLayoutPanel37";
+            this.tableLayoutPanel37.RowCount = 2;
+            this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel37.Size = new System.Drawing.Size(731, 77);
+            this.tableLayoutPanel37.TabIndex = 1;
             // 
             // cbtenhang
             // 
             this.cbtenhang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbtenhang.FormattingEnabled = true;
-            this.cbtenhang.Location = new System.Drawing.Point(3, 2);
+            this.cbtenhang.Location = new System.Drawing.Point(143, 2);
             this.cbtenhang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbtenhang.Name = "cbtenhang";
-            this.cbtenhang.Size = new System.Drawing.Size(655, 28);
-            this.cbtenhang.TabIndex = 1;
+            this.cbtenhang.Size = new System.Drawing.Size(585, 28);
+            this.cbtenhang.TabIndex = 2;
+            this.cbtenhang.SelectedValueChanged += new System.EventHandler(this.cbtenhang_SelectedValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(134, 38);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Tên sản phẩm";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.Location = new System.Drawing.Point(3, 38);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(134, 39);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Size";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cbsize
+            // 
+            this.cbsize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbsize.FormattingEnabled = true;
+            this.cbsize.Location = new System.Drawing.Point(143, 41);
+            this.cbsize.Name = "cbsize";
+            this.cbsize.Size = new System.Drawing.Size(585, 28);
+            this.cbsize.TabIndex = 5;
             // 
             // dgvsp
             // 
@@ -337,13 +399,13 @@
             this.dgvsp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvsp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvsp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvsp.Location = new System.Drawing.Point(3, 52);
+            this.dgvsp.Location = new System.Drawing.Point(3, 89);
             this.dgvsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvsp.Name = "dgvsp";
             this.dgvsp.ReadOnly = true;
             this.dgvsp.RowHeadersWidth = 51;
             this.dgvsp.RowTemplate.Height = 24;
-            this.dgvsp.Size = new System.Drawing.Size(912, 546);
+            this.dgvsp.Size = new System.Drawing.Size(912, 509);
             this.dgvsp.TabIndex = 3;
             this.dgvsp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvsp_CellContentClick);
             // 
@@ -383,7 +445,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel5.Controls.Add(this.btthanhtoan, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label3, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lbtongtien, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 602);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -403,6 +465,7 @@
             this.btthanhtoan.TabIndex = 0;
             this.btthanhtoan.Text = "Thanh Toán";
             this.btthanhtoan.UseVisualStyleBackColor = true;
+            this.btthanhtoan.Click += new System.EventHandler(this.btthanhtoan_Click);
             // 
             // label2
             // 
@@ -415,29 +478,31 @@
             this.label2.Text = "Tổng tiền";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lbtongtien
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(143, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(626, 46);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "1.000.000.000.000";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbtongtien.AutoSize = true;
+            this.lbtongtien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbtongtien.Location = new System.Drawing.Point(143, 0);
+            this.lbtongtien.Name = "lbtongtien";
+            this.lbtongtien.Size = new System.Drawing.Size(626, 46);
+            this.lbtongtien.TabIndex = 2;
+            this.lbtongtien.Text = "0";
+            this.lbtongtien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dgvgiohang
             // 
+            this.dgvgiohang.AllowUserToAddRows = false;
+            this.dgvgiohang.AllowUserToDeleteRows = false;
             this.dgvgiohang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvgiohang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tenhang,
-            this.soluong,
-            this.dongia,
-            this.thanhtien});
+            this.size,
+            this.dongia});
             this.dgvgiohang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvgiohang.Location = new System.Drawing.Point(3, 2);
             this.dgvgiohang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvgiohang.Name = "dgvgiohang";
+            this.dgvgiohang.ReadOnly = true;
             this.dgvgiohang.RowHeadersWidth = 51;
             this.dgvgiohang.RowTemplate.Height = 24;
             this.dgvgiohang.Size = new System.Drawing.Size(912, 596);
@@ -449,13 +514,15 @@
             this.tenhang.HeaderText = "Tên mặt hàng";
             this.tenhang.MinimumWidth = 6;
             this.tenhang.Name = "tenhang";
+            this.tenhang.ReadOnly = true;
             // 
-            // soluong
+            // size
             // 
-            this.soluong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.soluong.HeaderText = "Số lượng";
-            this.soluong.MinimumWidth = 6;
-            this.soluong.Name = "soluong";
+            this.size.HeaderText = "Size";
+            this.size.MinimumWidth = 6;
+            this.size.Name = "size";
+            this.size.ReadOnly = true;
+            this.size.Width = 125;
             // 
             // dongia
             // 
@@ -463,13 +530,7 @@
             this.dongia.HeaderText = "Đơn giá";
             this.dongia.MinimumWidth = 6;
             this.dongia.Name = "dongia";
-            // 
-            // thanhtien
-            // 
-            this.thanhtien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.thanhtien.HeaderText = "Thành tiền";
-            this.thanhtien.MinimumWidth = 6;
-            this.thanhtien.Name = "thanhtien";
+            this.dongia.ReadOnly = true;
             // 
             // tabPage3
             // 
@@ -902,7 +963,7 @@
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel16.Size = new System.Drawing.Size(685, 74);
             this.tableLayoutPanel16.TabIndex = 1;
             // 
@@ -1044,11 +1105,11 @@
             // tableLayoutPanel27
             // 
             this.tableLayoutPanel27.ColumnCount = 5;
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.18322F));
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.75717F));
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.99117F));
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.77042F));
-            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.077263F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.52868F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.47132F));
             this.tableLayoutPanel27.Controls.Add(this.tableLayoutPanel28, 3, 0);
             this.tableLayoutPanel27.Controls.Add(this.tableLayoutPanel30, 2, 0);
             this.tableLayoutPanel27.Controls.Add(this.tableLayoutPanel29, 1, 0);
@@ -1067,12 +1128,12 @@
             this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel28.Controls.Add(this.b_HuyTK, 0, 0);
             this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel28.Location = new System.Drawing.Point(700, 2);
+            this.tableLayoutPanel28.Location = new System.Drawing.Point(702, 2);
             this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
             this.tableLayoutPanel28.RowCount = 1;
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(155, 49);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(154, 49);
             this.tableLayoutPanel28.TabIndex = 0;
             // 
             // b_HuyTK
@@ -1081,7 +1142,7 @@
             this.b_HuyTK.Location = new System.Drawing.Point(3, 2);
             this.b_HuyTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.b_HuyTK.Name = "b_HuyTK";
-            this.b_HuyTK.Size = new System.Drawing.Size(149, 45);
+            this.b_HuyTK.Size = new System.Drawing.Size(148, 45);
             this.b_HuyTK.TabIndex = 1;
             this.b_HuyTK.Text = "Hủy";
             this.b_HuyTK.UseVisualStyleBackColor = true;
@@ -1093,12 +1154,12 @@
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel30.Controls.Add(this.b_LuuTK, 0, 0);
             this.tableLayoutPanel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel30.Location = new System.Drawing.Point(537, 2);
+            this.tableLayoutPanel30.Location = new System.Drawing.Point(542, 2);
             this.tableLayoutPanel30.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel30.Name = "tableLayoutPanel30";
             this.tableLayoutPanel30.RowCount = 1;
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel30.Size = new System.Drawing.Size(157, 49);
+            this.tableLayoutPanel30.Size = new System.Drawing.Size(154, 49);
             this.tableLayoutPanel30.TabIndex = 1;
             // 
             // b_LuuTK
@@ -1107,7 +1168,7 @@
             this.b_LuuTK.Location = new System.Drawing.Point(3, 2);
             this.b_LuuTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.b_LuuTK.Name = "b_LuuTK";
-            this.b_LuuTK.Size = new System.Drawing.Size(151, 45);
+            this.b_LuuTK.Size = new System.Drawing.Size(148, 45);
             this.b_LuuTK.TabIndex = 1;
             this.b_LuuTK.Text = "Lưu";
             this.b_LuuTK.UseVisualStyleBackColor = true;
@@ -1119,13 +1180,13 @@
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel29.Controls.Add(this.b_CapNhatTK, 0, 0);
             this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel29.Location = new System.Drawing.Point(358, 2);
+            this.tableLayoutPanel29.Location = new System.Drawing.Point(362, 2);
             this.tableLayoutPanel29.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel29.Name = "tableLayoutPanel29";
             this.tableLayoutPanel29.RowCount = 1;
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel29.Size = new System.Drawing.Size(173, 49);
+            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tableLayoutPanel29.Size = new System.Drawing.Size(174, 49);
             this.tableLayoutPanel29.TabIndex = 1;
             // 
             // b_CapNhatTK
@@ -1134,7 +1195,7 @@
             this.b_CapNhatTK.Location = new System.Drawing.Point(3, 2);
             this.b_CapNhatTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.b_CapNhatTK.Name = "b_CapNhatTK";
-            this.b_CapNhatTK.Size = new System.Drawing.Size(167, 45);
+            this.b_CapNhatTK.Size = new System.Drawing.Size(168, 45);
             this.b_CapNhatTK.TabIndex = 0;
             this.b_CapNhatTK.Text = "Cập nhật tài khoản";
             this.b_CapNhatTK.UseVisualStyleBackColor = true;
@@ -1188,10 +1249,11 @@
             // 
             // tB_TL2
             // 
+            this.tB_TL2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_TL2.Location = new System.Drawing.Point(3, 2);
             this.tB_TL2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tB_TL2.Name = "tB_TL2";
-            this.tB_TL2.Size = new System.Drawing.Size(665, 26);
+            this.tB_TL2.Size = new System.Drawing.Size(668, 26);
             this.tB_TL2.TabIndex = 1;
             this.tB_TL2.UseSystemPasswordChar = true;
             // 
@@ -1236,10 +1298,11 @@
             // 
             // tB_TL1
             // 
+            this.tB_TL1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_TL1.Location = new System.Drawing.Point(3, 2);
             this.tB_TL1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tB_TL1.Name = "tB_TL1";
-            this.tB_TL1.Size = new System.Drawing.Size(665, 26);
+            this.tB_TL1.Size = new System.Drawing.Size(667, 26);
             this.tB_TL1.TabIndex = 1;
             this.tB_TL1.UseSystemPasswordChar = true;
             // 
@@ -1382,13 +1445,6 @@
             this.tB_UN.Size = new System.Drawing.Size(666, 26);
             this.tB_UN.TabIndex = 0;
             // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
-            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
-            // 
             // homenv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1397,6 +1453,7 @@
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "homenv";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.homenv_FormClosing);
@@ -1408,6 +1465,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel37.ResumeLayout(false);
+            this.tableLayoutPanel37.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsp)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -1478,20 +1537,15 @@
         private System.Windows.Forms.Label tennhanvien;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btthem;
-        private System.Windows.Forms.ComboBox cbtenhang;
         private System.Windows.Forms.DataGridView dgvsp;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button btthanhtoan;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbtongtien;
         private System.Windows.Forms.DataGridView dgvgiohang;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenhang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soluong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dongia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thanhtien;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
@@ -1561,5 +1615,13 @@
         private System.Windows.Forms.ToolStripMenuItem thêmNhânViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nhàCungCấpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel37;
+        private System.Windows.Forms.ComboBox cbtenhang;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbsize;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenhang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn size;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dongia;
     }
 }

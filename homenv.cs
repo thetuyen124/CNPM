@@ -14,8 +14,11 @@ namespace CNPM
     
     public partial class homenv : Form
     {
+        double tt=0;
         private string StringConnect;
         private SqlConnection Connect = null;
+        string tensphd="\n\n";
+        string giahd = "\n\n";
 
         string ten;//lưu tên nhân viên đang đăng nhập
         string ma; //Lưu mã nhân viên dùng bên dưới :>
@@ -40,6 +43,7 @@ namespace CNPM
         {
             Connect = new SqlConnection(StringConnect); //Khởi tạo kết nối với đường dẫn StringConnect
             Connect.Open();
+            cbsize.Enabled = false;
             updatecbtenhang();
             updatedgvsp();
             LoadNV();
@@ -325,6 +329,77 @@ namespace CNPM
             Form a = new dangnhap();
             a.Show();
             this.Hide();
+        }
+
+        private void btthanhtoan_Click(object sender, EventArgs e)
+        {
+            
+            DialogResult res = MessageBox.Show("Bạn có chắc chắn muốn thanh toán?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(res==DialogResult.Yes)
+            {
+                check_sp(ref tensphd, ref giahd);
+                Form a = new hoadon(tensphd, giahd, lbtongtien.Text);
+                a.Show();
+                reset();
+            }
+
+        }
+
+        private void btthem_Click(object sender, EventArgs e)
+        {
+            string query="SELECT GIABAN FROM SP where TEN_SP='" + cbtenhang.Text + "'";
+            string giaban;
+            using (SqlCommand cmd = new SqlCommand(query, Connect))
+            {
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                giaban = dr["GIABAN"].ToString();
+                dr.Close();
+            }
+            dgvgiohang.Rows.Add(cbtenhang.Text,cbsize.Text, giaban);
+            
+            tt += Convert.ToDouble(giaban);
+            lbtongtien.Text =tt.ToString();
+        }
+
+        private void cbtenhang_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cbsize.Enabled = true;
+            SqlDataAdapter run;//lấy dữ liệu lấy từ CSDL
+            DataSet bang = new DataSet();//luu du lieu lay tu csdl
+            string query = "select SIZE from SP where TEN_SP ='"+cbtenhang.Text+"'";//query sql
+            run = new SqlDataAdapter(query, Connect);
+            run.Fill(bang);
+            cbsize.DataSource = bang.Tables[0];
+            cbsize.DisplayMember = "SIZE";
+        }
+        private void check_sp(ref string tensp,ref string giaban)
+        {
+            Dictionary<string, int> a = new Dictionary<string, int>();
+            //lbtongtien.Text = Convert.ToString(dgvgiohang.Rows[0].Cells[0].Value);
+            int dem = dgvgiohang.RowCount;
+            for (int i=0; i<dem;i++)
+            {
+                string b = "";
+                
+                b = Convert.ToString(dgvgiohang.Rows[i].Cells[0].Value);
+                int gia = Convert.ToInt32(dgvgiohang.Rows[i].Cells[2].Value);
+                if (a.ContainsKey(b))
+                    a[b]+=gia;
+                else
+                    a[b] = gia;
+            }
+            foreach(KeyValuePair<string,int> r in a)
+            {
+                tensp += r.Key + "\n \n";
+                giaban += Convert.ToString(r.Value) + " đ\n \n";
+            }
+        }
+        private void reset()
+        {
+            dgvgiohang.Rows.Clear();
+            lbtongtien.Text = "0";
         }
     }
 }

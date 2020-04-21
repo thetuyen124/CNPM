@@ -52,7 +52,12 @@
     <Compile Include="dangnhap.Designer.cs">
       <DependentUpon>dangnhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataConnection.cs" />
+    <Compile Include="hoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hoadon.Designer.cs">
+      <DependentUpon>hoadon.cs</DependentUpon>
+    </Compile>
     <Compile Include="homenv.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +92,9 @@
     </Compile>
     <EmbeddedResource Include="dangnhap.resx">
       <DependentUpon>dangnhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hoadon.resx">
+      <DependentUpon>hoadon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="homenv.resx">
       <DependentUpon>homenv.cs</DependentUpon>
@@ -134,6 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\8.1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Resources\icon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
