@@ -89,6 +89,14 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.TBtenLH = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.DGV_LH = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.b_themLH = new System.Windows.Forms.Button();
+            this.b_xoaLH = new System.Windows.Forms.Button();
+            this.b_luuLH = new System.Windows.Forms.Button();
+            this.b_dongLH = new System.Windows.Forms.Button();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tcql = new System.Windows.Forms.TabControl();
             this.Form_QLNV = new System.Windows.Forms.TabPage();
@@ -181,6 +189,8 @@
             this.TEN_SP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GIANHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOLUONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.tabPage15 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -192,6 +202,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dGV_KH)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
+            this.tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_LH)).BeginInit();
+            this.tableLayoutPanel14.SuspendLayout();
             this.tcql.SuspendLayout();
             this.Form_QLNV.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
@@ -228,7 +241,7 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(744, 549);
@@ -237,9 +250,9 @@
             // tabPage1
             // 
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(736, 520);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Quản lý nhân viên";
@@ -248,9 +261,9 @@
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(736, 520);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Quản lý nhà cung cấp";
@@ -259,9 +272,9 @@
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage3.Size = new System.Drawing.Size(736, 520);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Quản lý loại hàng";
@@ -270,7 +283,7 @@
             // tabPage7
             // 
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage7.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(736, 520);
             this.tabPage7.TabIndex = 6;
@@ -281,9 +294,9 @@
             // 
             this.tabPage4.ContextMenuStrip = this.contextMenuStrip2;
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage4.Size = new System.Drawing.Size(736, 520);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Quản lý khách hàng";
@@ -323,9 +336,9 @@
             // tabPage5
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage5.Size = new System.Drawing.Size(736, 520);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Hóa đơn";
@@ -334,9 +347,9 @@
             // tabPage6
             // 
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage6.Size = new System.Drawing.Size(736, 520);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Báo cáo";
@@ -419,9 +432,9 @@
             this.tabPage8.Controls.Add(this.tableLayoutPanel5);
             this.tabPage8.Controls.Add(this.tableLayoutPanel4);
             this.tabPage8.Location = new System.Drawing.Point(4, 24);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage8.Size = new System.Drawing.Size(736, 521);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Quản lý nhà cung cấp";
@@ -465,7 +478,7 @@
             this.tableLayoutPanel5.Controls.Add(this.b_XoaNCC, 5, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(2, 477);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -647,9 +660,9 @@
             this.tabPage9.Controls.Add(this.tableLayoutPanel7);
             this.tabPage9.Controls.Add(this.tableLayoutPanel6);
             this.tabPage9.Location = new System.Drawing.Point(4, 24);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage9.Size = new System.Drawing.Size(736, 521);
             this.tabPage9.TabIndex = 3;
             this.tabPage9.Text = "Quản lý khách hàng";
@@ -694,7 +707,7 @@
             this.tableLayoutPanel7.Controls.Add(this.b_LuuKH, 7, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(2, 477);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -771,7 +784,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.125677F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.21777F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.93608F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.tableLayoutPanel6.Controls.Add(this.TBghichuKH, 4, 5);
             this.tableLayoutPanel6.Controls.Add(this.TBcmtKH, 4, 3);
             this.tableLayoutPanel6.Controls.Add(this.TBsdtKH, 4, 1);
@@ -803,25 +816,25 @@
             // TBghichuKH
             // 
             this.TBghichuKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBghichuKH.Location = new System.Drawing.Point(453, 74);
+            this.TBghichuKH.Location = new System.Drawing.Point(451, 74);
             this.TBghichuKH.Name = "TBghichuKH";
-            this.TBghichuKH.Size = new System.Drawing.Size(215, 21);
+            this.TBghichuKH.Size = new System.Drawing.Size(214, 21);
             this.TBghichuKH.TabIndex = 10;
             // 
             // TBcmtKH
             // 
             this.TBcmtKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBcmtKH.Location = new System.Drawing.Point(453, 40);
+            this.TBcmtKH.Location = new System.Drawing.Point(451, 40);
             this.TBcmtKH.Name = "TBcmtKH";
-            this.TBcmtKH.Size = new System.Drawing.Size(215, 21);
+            this.TBcmtKH.Size = new System.Drawing.Size(214, 21);
             this.TBcmtKH.TabIndex = 11;
             // 
             // TBsdtKH
             // 
             this.TBsdtKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBsdtKH.Location = new System.Drawing.Point(453, 7);
+            this.TBsdtKH.Location = new System.Drawing.Point(451, 7);
             this.TBsdtKH.Name = "TBsdtKH";
-            this.TBsdtKH.Size = new System.Drawing.Size(215, 21);
+            this.TBsdtKH.Size = new System.Drawing.Size(214, 21);
             this.TBsdtKH.TabIndex = 12;
             // 
             // label15
@@ -842,7 +855,7 @@
             this.TBmaKH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBmaKH.Location = new System.Drawing.Point(103, 7);
             this.TBmaKH.Name = "TBmaKH";
-            this.TBmaKH.Size = new System.Drawing.Size(201, 21);
+            this.TBmaKH.Size = new System.Drawing.Size(200, 21);
             this.TBmaKH.TabIndex = 7;
             // 
             // label19
@@ -850,9 +863,9 @@
             this.label19.AutoSize = true;
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(364, 37);
+            this.label19.Location = new System.Drawing.Point(363, 37);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(83, 23);
+            this.label19.Size = new System.Drawing.Size(82, 23);
             this.label19.TabIndex = 4;
             this.label19.Text = "CMTND";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -874,7 +887,7 @@
             this.TBtenKH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBtenKH.Location = new System.Drawing.Point(103, 40);
             this.TBtenKH.Name = "TBtenKH";
-            this.TBtenKH.Size = new System.Drawing.Size(201, 21);
+            this.TBtenKH.Size = new System.Drawing.Size(200, 21);
             this.TBtenKH.TabIndex = 9;
             // 
             // TBdiachiKH
@@ -882,7 +895,7 @@
             this.TBdiachiKH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBdiachiKH.Location = new System.Drawing.Point(103, 74);
             this.TBdiachiKH.Name = "TBdiachiKH";
-            this.TBdiachiKH.Size = new System.Drawing.Size(201, 21);
+            this.TBdiachiKH.Size = new System.Drawing.Size(200, 21);
             this.TBdiachiKH.TabIndex = 8;
             // 
             // label17
@@ -902,9 +915,9 @@
             this.label18.AutoSize = true;
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(364, 4);
+            this.label18.Location = new System.Drawing.Point(363, 4);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(83, 26);
+            this.label18.Size = new System.Drawing.Size(82, 26);
             this.label18.TabIndex = 3;
             this.label18.Text = "Số điện thoại";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -915,30 +928,119 @@
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label20.Location = new System.Drawing.Point(364, 71);
+            this.label20.Location = new System.Drawing.Point(363, 71);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(83, 25);
+            this.label20.Size = new System.Drawing.Size(82, 25);
             this.label20.TabIndex = 5;
             this.label20.Text = "Ghi Chú";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this.TBtenLH);
+            this.tabPage10.Controls.Add(this.label36);
+            this.tabPage10.Controls.Add(this.DGV_LH);
+            this.tabPage10.Controls.Add(this.tableLayoutPanel14);
             this.tabPage10.Location = new System.Drawing.Point(4, 24);
-            this.tabPage10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage10.Size = new System.Drawing.Size(736, 521);
             this.tabPage10.TabIndex = 2;
             this.tabPage10.Text = "Quản lý loại hàng";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // TBtenLH
+            // 
+            this.TBtenLH.Location = new System.Drawing.Point(149, 26);
+            this.TBtenLH.Name = "TBtenLH";
+            this.TBtenLH.Size = new System.Drawing.Size(213, 21);
+            this.TBtenLH.TabIndex = 6;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(8, 23);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(135, 24);
+            this.label36.TabIndex = 5;
+            this.label36.Text = "Tên Loại Hàng";
+            // 
+            // DGV_LH
+            // 
+            this.DGV_LH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_LH.Location = new System.Drawing.Point(2, 60);
+            this.DGV_LH.Name = "DGV_LH";
+            this.DGV_LH.Size = new System.Drawing.Size(733, 401);
+            this.DGV_LH.TabIndex = 4;
+            this.DGV_LH.Click += new System.EventHandler(this.DGV_LH_Click);
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 4;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel14.Controls.Add(this.b_themLH, 0, 0);
+            this.tableLayoutPanel14.Controls.Add(this.b_xoaLH, 1, 0);
+            this.tableLayoutPanel14.Controls.Add(this.b_luuLH, 2, 0);
+            this.tableLayoutPanel14.Controls.Add(this.b_dongLH, 3, 0);
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 461);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 1;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(733, 57);
+            this.tableLayoutPanel14.TabIndex = 3;
+            // 
+            // b_themLH
+            // 
+            this.b_themLH.Location = new System.Drawing.Point(3, 3);
+            this.b_themLH.Name = "b_themLH";
+            this.b_themLH.Size = new System.Drawing.Size(75, 23);
+            this.b_themLH.TabIndex = 0;
+            this.b_themLH.Text = "Thêm";
+            this.b_themLH.UseVisualStyleBackColor = true;
+            this.b_themLH.Click += new System.EventHandler(this.b_themLH_Click);
+            // 
+            // b_xoaLH
+            // 
+            this.b_xoaLH.Location = new System.Drawing.Point(186, 3);
+            this.b_xoaLH.Name = "b_xoaLH";
+            this.b_xoaLH.Size = new System.Drawing.Size(75, 23);
+            this.b_xoaLH.TabIndex = 1;
+            this.b_xoaLH.Text = "Xóa";
+            this.b_xoaLH.UseVisualStyleBackColor = true;
+            this.b_xoaLH.Click += new System.EventHandler(this.b_xoaLH_Click);
+            // 
+            // b_luuLH
+            // 
+            this.b_luuLH.Location = new System.Drawing.Point(369, 3);
+            this.b_luuLH.Name = "b_luuLH";
+            this.b_luuLH.Size = new System.Drawing.Size(75, 23);
+            this.b_luuLH.TabIndex = 2;
+            this.b_luuLH.Text = "Lưu";
+            this.b_luuLH.UseVisualStyleBackColor = true;
+            this.b_luuLH.Click += new System.EventHandler(this.b_luuLH_Click);
+            // 
+            // b_dongLH
+            // 
+            this.b_dongLH.Location = new System.Drawing.Point(552, 3);
+            this.b_dongLH.Name = "b_dongLH";
+            this.b_dongLH.Size = new System.Drawing.Size(75, 23);
+            this.b_dongLH.TabIndex = 3;
+            this.b_dongLH.Text = "Đóng";
+            this.b_dongLH.UseVisualStyleBackColor = true;
+            this.b_dongLH.Click += new System.EventHandler(this.b_dongLH_Click);
+            // 
             // tabPage11
             // 
             this.tabPage11.Location = new System.Drawing.Point(4, 24);
-            this.tabPage11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage11.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage11.Size = new System.Drawing.Size(736, 521);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Hóa đơn";
@@ -954,10 +1056,12 @@
             this.tcql.Controls.Add(this.tabPage9);
             this.tcql.Controls.Add(this.tabPage11);
             this.tcql.Controls.Add(this.tabPage13);
+            this.tcql.Controls.Add(this.tabPage12);
+            this.tcql.Controls.Add(this.tabPage15);
             this.tcql.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcql.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcql.Location = new System.Drawing.Point(0, 0);
-            this.tcql.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tcql.Margin = new System.Windows.Forms.Padding(2);
             this.tcql.Name = "tcql";
             this.tcql.SelectedIndex = 0;
             this.tcql.Size = new System.Drawing.Size(744, 549);
@@ -971,9 +1075,9 @@
             this.Form_QLNV.Controls.Add(this.tableLayoutPanel9);
             this.Form_QLNV.Controls.Add(this.tableLayoutPanel8);
             this.Form_QLNV.Location = new System.Drawing.Point(4, 24);
-            this.Form_QLNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Form_QLNV.Margin = new System.Windows.Forms.Padding(2);
             this.Form_QLNV.Name = "Form_QLNV";
-            this.Form_QLNV.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Form_QLNV.Padding = new System.Windows.Forms.Padding(2);
             this.Form_QLNV.Size = new System.Drawing.Size(736, 521);
             this.Form_QLNV.TabIndex = 0;
             this.Form_QLNV.Text = "Quản lý nhân viên";
@@ -1001,7 +1105,7 @@
             this.tableLayoutPanel11.Controls.Add(this.bt_LUUNV, 7, 0);
             this.tableLayoutPanel11.Controls.Add(this.bt_HUYNV, 9, 0);
             this.tableLayoutPanel11.Location = new System.Drawing.Point(2, 479);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1012,7 +1116,7 @@
             // 
             this.bt_THEMNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_THEMNV.Location = new System.Drawing.Point(31, 2);
-            this.bt_THEMNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_THEMNV.Margin = new System.Windows.Forms.Padding(2);
             this.bt_THEMNV.Name = "bt_THEMNV";
             this.bt_THEMNV.Size = new System.Drawing.Size(107, 38);
             this.bt_THEMNV.TabIndex = 0;
@@ -1024,7 +1128,7 @@
             // 
             this.bt_SUANV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_SUANV.Location = new System.Drawing.Point(171, 2);
-            this.bt_SUANV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_SUANV.Margin = new System.Windows.Forms.Padding(2);
             this.bt_SUANV.Name = "bt_SUANV";
             this.bt_SUANV.Size = new System.Drawing.Size(107, 38);
             this.bt_SUANV.TabIndex = 1;
@@ -1036,7 +1140,7 @@
             // 
             this.bt_XOANV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_XOANV.Location = new System.Drawing.Point(311, 2);
-            this.bt_XOANV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_XOANV.Margin = new System.Windows.Forms.Padding(2);
             this.bt_XOANV.Name = "bt_XOANV";
             this.bt_XOANV.Size = new System.Drawing.Size(107, 38);
             this.bt_XOANV.TabIndex = 2;
@@ -1048,7 +1152,7 @@
             // 
             this.bt_LUUNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_LUUNV.Location = new System.Drawing.Point(451, 2);
-            this.bt_LUUNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_LUUNV.Margin = new System.Windows.Forms.Padding(2);
             this.bt_LUUNV.Name = "bt_LUUNV";
             this.bt_LUUNV.Size = new System.Drawing.Size(107, 38);
             this.bt_LUUNV.TabIndex = 3;
@@ -1060,7 +1164,7 @@
             // 
             this.bt_HUYNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_HUYNV.Location = new System.Drawing.Point(591, 2);
-            this.bt_HUYNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_HUYNV.Margin = new System.Windows.Forms.Padding(2);
             this.bt_HUYNV.Name = "bt_HUYNV";
             this.bt_HUYNV.Size = new System.Drawing.Size(107, 38);
             this.bt_HUYNV.TabIndex = 4;
@@ -1075,7 +1179,7 @@
             this.dGV_NV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGV_NV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGV_NV.Location = new System.Drawing.Point(2, 191);
-            this.dGV_NV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dGV_NV.Margin = new System.Windows.Forms.Padding(2);
             this.dGV_NV.Name = "dGV_NV";
             this.dGV_NV.ReadOnly = true;
             this.dGV_NV.RowHeadersWidth = 51;
@@ -1093,7 +1197,7 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.Controls.Add(this.pB_NV, 0, 0);
             this.tableLayoutPanel9.Location = new System.Drawing.Point(578, 2);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1104,7 +1208,7 @@
             // 
             this.pB_NV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pB_NV.Location = new System.Drawing.Point(2, 2);
-            this.pB_NV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pB_NV.Margin = new System.Windows.Forms.Padding(2);
             this.pB_NV.Name = "pB_NV";
             this.pB_NV.Size = new System.Drawing.Size(154, 184);
             this.pB_NV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1141,7 +1245,7 @@
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel10, 3, 4);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel12, 1, 2);
             this.tableLayoutPanel8.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 5;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
@@ -1277,7 +1381,7 @@
             this.tB_MANV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_MANV.Enabled = false;
             this.tB_MANV.Location = new System.Drawing.Point(117, 2);
-            this.tB_MANV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_MANV.Margin = new System.Windows.Forms.Padding(2);
             this.tB_MANV.Multiline = true;
             this.tB_MANV.Name = "tB_MANV";
             this.tB_MANV.ReadOnly = true;
@@ -1289,7 +1393,7 @@
             // 
             this.tB_TENNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_TENNV.Location = new System.Drawing.Point(117, 35);
-            this.tB_TENNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_TENNV.Margin = new System.Windows.Forms.Padding(2);
             this.tB_TENNV.Multiline = true;
             this.tB_TENNV.Name = "tB_TENNV";
             this.tB_TENNV.Size = new System.Drawing.Size(169, 29);
@@ -1299,7 +1403,7 @@
             // 
             this.tb_DIACHINV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_DIACHINV.Location = new System.Drawing.Point(117, 101);
-            this.tb_DIACHINV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_DIACHINV.Margin = new System.Windows.Forms.Padding(2);
             this.tb_DIACHINV.Multiline = true;
             this.tb_DIACHINV.Name = "tb_DIACHINV";
             this.tb_DIACHINV.Size = new System.Drawing.Size(169, 29);
@@ -1309,7 +1413,7 @@
             // 
             this.tB_TENDANGNHAP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_TENDANGNHAP.Location = new System.Drawing.Point(405, 2);
-            this.tB_TENDANGNHAP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_TENDANGNHAP.Margin = new System.Windows.Forms.Padding(2);
             this.tB_TENDANGNHAP.Multiline = true;
             this.tB_TENDANGNHAP.Name = "tB_TENDANGNHAP";
             this.tB_TENDANGNHAP.Size = new System.Drawing.Size(171, 29);
@@ -1319,7 +1423,7 @@
             // 
             this.tB_MATKHAU.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_MATKHAU.Location = new System.Drawing.Point(405, 35);
-            this.tB_MATKHAU.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_MATKHAU.Margin = new System.Windows.Forms.Padding(2);
             this.tB_MATKHAU.Multiline = true;
             this.tB_MATKHAU.Name = "tB_MATKHAU";
             this.tB_MATKHAU.Size = new System.Drawing.Size(171, 29);
@@ -1329,7 +1433,7 @@
             // 
             this.tB_CMNDNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_CMNDNV.Location = new System.Drawing.Point(405, 68);
-            this.tB_CMNDNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_CMNDNV.Margin = new System.Windows.Forms.Padding(2);
             this.tB_CMNDNV.Multiline = true;
             this.tB_CMNDNV.Name = "tB_CMNDNV";
             this.tB_CMNDNV.Size = new System.Drawing.Size(171, 29);
@@ -1339,7 +1443,7 @@
             // 
             this.tB_SDTNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_SDTNV.Location = new System.Drawing.Point(405, 101);
-            this.tB_SDTNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_SDTNV.Margin = new System.Windows.Forms.Padding(2);
             this.tB_SDTNV.Multiline = true;
             this.tB_SDTNV.Name = "tB_SDTNV";
             this.tB_SDTNV.Size = new System.Drawing.Size(171, 29);
@@ -1349,7 +1453,7 @@
             // 
             this.rTB_CHUCVUNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rTB_CHUCVUNV.Location = new System.Drawing.Point(117, 134);
-            this.rTB_CHUCVUNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rTB_CHUCVUNV.Margin = new System.Windows.Forms.Padding(2);
             this.rTB_CHUCVUNV.Name = "rTB_CHUCVUNV";
             this.rTB_CHUCVUNV.Size = new System.Drawing.Size(169, 52);
             this.rTB_CHUCVUNV.TabIndex = 18;
@@ -1364,7 +1468,7 @@
             this.tableLayoutPanel10.Controls.Add(this.rTB_HINHANHNV, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(405, 134);
-            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1375,7 +1479,7 @@
             // 
             this.bt_MoAnhNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_MoAnhNV.Location = new System.Drawing.Point(114, 2);
-            this.bt_MoAnhNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bt_MoAnhNV.Margin = new System.Windows.Forms.Padding(2);
             this.bt_MoAnhNV.Name = "bt_MoAnhNV";
             this.bt_MoAnhNV.Size = new System.Drawing.Size(55, 48);
             this.bt_MoAnhNV.TabIndex = 0;
@@ -1388,7 +1492,7 @@
             this.rTB_HINHANHNV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rTB_HINHANHNV.Enabled = false;
             this.rTB_HINHANHNV.Location = new System.Drawing.Point(2, 2);
-            this.rTB_HINHANHNV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rTB_HINHANHNV.Margin = new System.Windows.Forms.Padding(2);
             this.rTB_HINHANHNV.Name = "rTB_HINHANHNV";
             this.rTB_HINHANHNV.ReadOnly = true;
             this.rTB_HINHANHNV.Size = new System.Drawing.Size(108, 48);
@@ -1404,7 +1508,7 @@
             this.tableLayoutPanel12.Controls.Add(this.rB_NAM, 1, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(117, 68);
-            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1416,7 +1520,7 @@
             this.rB_NU.AutoSize = true;
             this.rB_NU.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rB_NU.Location = new System.Drawing.Point(2, 2);
-            this.rB_NU.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rB_NU.Margin = new System.Windows.Forms.Padding(2);
             this.rB_NU.Name = "rB_NU";
             this.rB_NU.Size = new System.Drawing.Size(80, 25);
             this.rB_NU.TabIndex = 0;
@@ -1429,7 +1533,7 @@
             this.rB_NAM.AutoSize = true;
             this.rB_NAM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rB_NAM.Location = new System.Drawing.Point(86, 2);
-            this.rB_NAM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rB_NAM.Margin = new System.Windows.Forms.Padding(2);
             this.rB_NAM.Name = "rB_NAM";
             this.rB_NAM.Size = new System.Drawing.Size(81, 25);
             this.rB_NAM.TabIndex = 20;
@@ -1444,7 +1548,7 @@
             this.tabPage14.Controls.Add(this.tableLayoutPanel16);
             this.tabPage14.Controls.Add(this.tableLayoutPanel1);
             this.tabPage14.Location = new System.Drawing.Point(4, 24);
-            this.tabPage14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage14.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Size = new System.Drawing.Size(736, 521);
             this.tabPage14.TabIndex = 6;
@@ -1460,7 +1564,7 @@
             this.dGV_SP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dGV_SP.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dGV_SP.Location = new System.Drawing.Point(0, 166);
-            this.dGV_SP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dGV_SP.Margin = new System.Windows.Forms.Padding(2);
             this.dGV_SP.Name = "dGV_SP";
             this.dGV_SP.ReadOnly = true;
             this.dGV_SP.RowHeadersWidth = 51;
@@ -1478,7 +1582,7 @@
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel18, 0, 2);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 439);
-            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 3;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1508,7 +1612,7 @@
             this.tableLayoutPanel17.Controls.Add(this.b_BoQuaSP, 9, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel17.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 1;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -1520,7 +1624,7 @@
             this.b_LuuSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.b_LuuSP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.b_LuuSP.Location = new System.Drawing.Point(446, 2);
-            this.b_LuuSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.b_LuuSP.Margin = new System.Windows.Forms.Padding(2);
             this.b_LuuSP.Name = "b_LuuSP";
             this.b_LuuSP.Size = new System.Drawing.Size(124, 36);
             this.b_LuuSP.TabIndex = 11;
@@ -1533,7 +1637,7 @@
             this.b_XoaSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.b_XoaSP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.b_XoaSP.Location = new System.Drawing.Point(303, 2);
-            this.b_XoaSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.b_XoaSP.Margin = new System.Windows.Forms.Padding(2);
             this.b_XoaSP.Name = "b_XoaSP";
             this.b_XoaSP.Size = new System.Drawing.Size(124, 36);
             this.b_XoaSP.TabIndex = 10;
@@ -1546,7 +1650,7 @@
             this.b_SuaSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.b_SuaSP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.b_SuaSP.Location = new System.Drawing.Point(160, 2);
-            this.b_SuaSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.b_SuaSP.Margin = new System.Windows.Forms.Padding(2);
             this.b_SuaSP.Name = "b_SuaSP";
             this.b_SuaSP.Size = new System.Drawing.Size(124, 36);
             this.b_SuaSP.TabIndex = 9;
@@ -1559,7 +1663,7 @@
             this.b_ThemSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.b_ThemSP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.b_ThemSP.Location = new System.Drawing.Point(17, 2);
-            this.b_ThemSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.b_ThemSP.Margin = new System.Windows.Forms.Padding(2);
             this.b_ThemSP.Name = "b_ThemSP";
             this.b_ThemSP.Size = new System.Drawing.Size(124, 36);
             this.b_ThemSP.TabIndex = 8;
@@ -1572,7 +1676,7 @@
             this.b_BoQuaSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.b_BoQuaSP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.b_BoQuaSP.Location = new System.Drawing.Point(589, 2);
-            this.b_BoQuaSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.b_BoQuaSP.Margin = new System.Windows.Forms.Padding(2);
             this.b_BoQuaSP.Name = "b_BoQuaSP";
             this.b_BoQuaSP.Size = new System.Drawing.Size(124, 36);
             this.b_BoQuaSP.TabIndex = 12;
@@ -1592,7 +1696,7 @@
             this.tableLayoutPanel18.Controls.Add(this.b_TimKiemSP, 3, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(2, 51);
-            this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1605,7 +1709,7 @@
             this.tB_TimKiemSP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_TimKiemSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tB_TimKiemSP.Location = new System.Drawing.Point(45, 2);
-            this.tB_TimKiemSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_TimKiemSP.Margin = new System.Windows.Forms.Padding(2);
             this.tB_TimKiemSP.Name = "tB_TimKiemSP";
             this.tB_TimKiemSP.Size = new System.Drawing.Size(270, 21);
             this.tB_TimKiemSP.TabIndex = 13;
@@ -1617,7 +1721,7 @@
             this.b_TimKiemSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.b_TimKiemSP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.b_TimKiemSP.Location = new System.Drawing.Point(333, 2);
-            this.b_TimKiemSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.b_TimKiemSP.Margin = new System.Windows.Forms.Padding(2);
             this.b_TimKiemSP.Name = "b_TimKiemSP";
             this.b_TimKiemSP.Size = new System.Drawing.Size(98, 25);
             this.b_TimKiemSP.TabIndex = 14;
@@ -1634,7 +1738,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1646,7 +1750,7 @@
             this.pB_SP.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pB_SP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pB_SP.Location = new System.Drawing.Point(584, 2);
-            this.pB_SP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pB_SP.Margin = new System.Windows.Forms.Padding(2);
             this.pB_SP.Name = "pB_SP";
             this.pB_SP.Size = new System.Drawing.Size(150, 162);
             this.pB_SP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1682,7 +1786,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 3, 4);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.636F));
@@ -1698,7 +1802,7 @@
             this.tB_Ma.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tB_Ma.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_Ma.Location = new System.Drawing.Point(98, 2);
-            this.tB_Ma.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_Ma.Margin = new System.Windows.Forms.Padding(2);
             this.tB_Ma.Name = "tB_Ma";
             this.tB_Ma.Size = new System.Drawing.Size(182, 21);
             this.tB_Ma.TabIndex = 0;
@@ -1722,7 +1826,7 @@
             this.nUD_SP.Cursor = System.Windows.Forms.Cursors.Default;
             this.nUD_SP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nUD_SP.Location = new System.Drawing.Point(98, 58);
-            this.nUD_SP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nUD_SP.Margin = new System.Windows.Forms.Padding(2);
             this.nUD_SP.Maximum = new decimal(new int[] {
             49,
             0,
@@ -1787,7 +1891,7 @@
             this.tB_TenSP.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tB_TenSP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_TenSP.Location = new System.Drawing.Point(386, 2);
-            this.tB_TenSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_TenSP.Margin = new System.Windows.Forms.Padding(2);
             this.tB_TenSP.Name = "tB_TenSP";
             this.tB_TenSP.Size = new System.Drawing.Size(190, 21);
             this.tB_TenSP.TabIndex = 1;
@@ -1800,7 +1904,7 @@
             this.cB_LH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cB_LH.FormattingEnabled = true;
             this.cB_LH.Location = new System.Drawing.Point(386, 30);
-            this.cB_LH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cB_LH.Margin = new System.Windows.Forms.Padding(2);
             this.cB_LH.Name = "cB_LH";
             this.cB_LH.Size = new System.Drawing.Size(190, 23);
             this.cB_LH.TabIndex = 3;
@@ -1825,7 +1929,7 @@
             this.tB_GiaNhap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_GiaNhap.Enabled = false;
             this.tB_GiaNhap.Location = new System.Drawing.Point(386, 86);
-            this.tB_GiaNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_GiaNhap.Margin = new System.Windows.Forms.Padding(2);
             this.tB_GiaNhap.Name = "tB_GiaNhap";
             this.tB_GiaNhap.ReadOnly = true;
             this.tB_GiaNhap.Size = new System.Drawing.Size(190, 21);
@@ -1880,7 +1984,7 @@
             this.cB_NCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cB_NCC.FormattingEnabled = true;
             this.cB_NCC.Location = new System.Drawing.Point(98, 30);
-            this.cB_NCC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cB_NCC.Margin = new System.Windows.Forms.Padding(2);
             this.cB_NCC.Name = "cB_NCC";
             this.cB_NCC.Size = new System.Drawing.Size(182, 23);
             this.cB_NCC.TabIndex = 2;
@@ -1892,7 +1996,7 @@
             this.tB_SoLuong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_SoLuong.Enabled = false;
             this.tB_SoLuong.Location = new System.Drawing.Point(386, 58);
-            this.tB_SoLuong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_SoLuong.Margin = new System.Windows.Forms.Padding(2);
             this.tB_SoLuong.Name = "tB_SoLuong";
             this.tB_SoLuong.ReadOnly = true;
             this.tB_SoLuong.Size = new System.Drawing.Size(190, 21);
@@ -1931,7 +2035,7 @@
             this.rTB_GhiChu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rTB_GhiChu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rTB_GhiChu.Location = new System.Drawing.Point(98, 114);
-            this.rTB_GhiChu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rTB_GhiChu.Margin = new System.Windows.Forms.Padding(2);
             this.rTB_GhiChu.Name = "rTB_GhiChu";
             this.rTB_GhiChu.Size = new System.Drawing.Size(182, 46);
             this.rTB_GhiChu.TabIndex = 6;
@@ -1942,7 +2046,7 @@
             // 
             this.tB_GiaBan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tB_GiaBan.Location = new System.Drawing.Point(98, 86);
-            this.tB_GiaBan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tB_GiaBan.Margin = new System.Windows.Forms.Padding(2);
             this.tB_GiaBan.Name = "tB_GiaBan";
             this.tB_GiaBan.Size = new System.Drawing.Size(182, 21);
             this.tB_GiaBan.TabIndex = 5;
@@ -1958,7 +2062,7 @@
             this.tableLayoutPanel3.Controls.Add(this.rTB_HinhAnh, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(386, 114);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1970,7 +2074,7 @@
             this.b_AnhSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.b_AnhSP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.b_AnhSP.Location = new System.Drawing.Point(135, 2);
-            this.b_AnhSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.b_AnhSP.Margin = new System.Windows.Forms.Padding(2);
             this.b_AnhSP.Name = "b_AnhSP";
             this.b_AnhSP.Size = new System.Drawing.Size(53, 42);
             this.b_AnhSP.TabIndex = 7;
@@ -1986,7 +2090,7 @@
             this.rTB_HinhAnh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rTB_HinhAnh.Enabled = false;
             this.rTB_HinhAnh.Location = new System.Drawing.Point(2, 2);
-            this.rTB_HinhAnh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rTB_HinhAnh.Margin = new System.Windows.Forms.Padding(2);
             this.rTB_HinhAnh.Name = "rTB_HinhAnh";
             this.rTB_HinhAnh.ReadOnly = true;
             this.rTB_HinhAnh.Size = new System.Drawing.Size(129, 42);
@@ -2009,9 +2113,9 @@
             this.tabPage13.Controls.Add(this.label31);
             this.tabPage13.Controls.Add(this.dataGridView1);
             this.tabPage13.Location = new System.Drawing.Point(4, 24);
-            this.tabPage13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage13.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage13.Size = new System.Drawing.Size(736, 521);
             this.tabPage13.TabIndex = 7;
             this.tabPage13.Text = "Nhập Kho";
@@ -2020,7 +2124,7 @@
             // txtTien
             // 
             this.txtTien.Location = new System.Drawing.Point(536, 369);
-            this.txtTien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTien.Margin = new System.Windows.Forms.Padding(2);
             this.txtTien.Name = "txtTien";
             this.txtTien.ReadOnly = true;
             this.txtTien.Size = new System.Drawing.Size(130, 21);
@@ -2051,7 +2155,7 @@
             // txtGN
             // 
             this.txtGN.Location = new System.Drawing.Point(536, 297);
-            this.txtGN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtGN.Margin = new System.Windows.Forms.Padding(2);
             this.txtGN.Name = "txtGN";
             this.txtGN.ReadOnly = true;
             this.txtGN.Size = new System.Drawing.Size(130, 21);
@@ -2071,7 +2175,7 @@
             // txtSP
             // 
             this.txtSP.Location = new System.Drawing.Point(536, 262);
-            this.txtSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSP.Margin = new System.Windows.Forms.Padding(2);
             this.txtSP.Name = "txtSP";
             this.txtSP.ReadOnly = true;
             this.txtSP.Size = new System.Drawing.Size(130, 21);
@@ -2091,7 +2195,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(4, 189);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(427, 243);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -2101,7 +2205,7 @@
             // txtSL
             // 
             this.txtSL.Location = new System.Drawing.Point(536, 334);
-            this.txtSL.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSL.Margin = new System.Windows.Forms.Padding(2);
             this.txtSL.Name = "txtSL";
             this.txtSL.Size = new System.Drawing.Size(49, 21);
             this.txtSL.TabIndex = 4;
@@ -2111,7 +2215,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(585, 402);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 30);
             this.button1.TabIndex = 3;
@@ -2122,7 +2226,7 @@
             // txtNCC
             // 
             this.txtNCC.Location = new System.Drawing.Point(536, 227);
-            this.txtNCC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNCC.Margin = new System.Windows.Forms.Padding(2);
             this.txtNCC.Name = "txtNCC";
             this.txtNCC.ReadOnly = true;
             this.txtNCC.Size = new System.Drawing.Size(130, 21);
@@ -2148,7 +2252,7 @@
             this.GIANHAP,
             this.SOLUONG});
             this.dataGridView1.Location = new System.Drawing.Point(4, 6);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -2188,6 +2292,26 @@
             this.SOLUONG.MinimumWidth = 6;
             this.SOLUONG.Name = "SOLUONG";
             // 
+            // tabPage12
+            // 
+            this.tabPage12.Location = new System.Drawing.Point(4, 24);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage12.Size = new System.Drawing.Size(736, 521);
+            this.tabPage12.TabIndex = 8;
+            this.tabPage12.Text = "Báo Cáo Theo Tháng";
+            this.tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // tabPage15
+            // 
+            this.tabPage15.Location = new System.Drawing.Point(4, 24);
+            this.tabPage15.Name = "tabPage15";
+            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage15.Size = new System.Drawing.Size(736, 521);
+            this.tabPage15.TabIndex = 9;
+            this.tabPage15.Text = "Báo Cáo Theo Năm";
+            this.tabPage15.UseVisualStyleBackColor = true;
+            // 
             // homeql
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2196,7 +2320,7 @@
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.tcql);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "homeql";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "homeql";
@@ -2215,6 +2339,10 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_LH)).EndInit();
+            this.tableLayoutPanel14.ResumeLayout(false);
             this.tcql.ResumeLayout(false);
             this.Form_QLNV.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
@@ -2400,5 +2528,15 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox TBtenLH;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.DataGridView DGV_LH;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+        private System.Windows.Forms.Button b_themLH;
+        private System.Windows.Forms.Button b_xoaLH;
+        private System.Windows.Forms.Button b_luuLH;
+        private System.Windows.Forms.Button b_dongLH;
+        private System.Windows.Forms.TabPage tabPage12;
+        private System.Windows.Forms.TabPage tabPage15;
     }
 }
