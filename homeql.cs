@@ -1286,6 +1286,110 @@ namespace CNPM
             b_HuyNCC.Enabled = false;
             b_XoaNCC.Enabled = false;
         }
+
+        //phần Thái làm GD2//
+        DataTable DTLH;
+
+        private void LoadDGV()
+        {
+            string query = "Select TEN_LH as [Tên loại hàng] from LH";
+            DTLH = LayDuLieuRaBang(query, StringConnect);
+            DGV_LH.DataSource = DTLH;
+        }
+
+        private void ResetValues()
+        {
+            TBtenLH.Text = "";
+            b_xoaLH.Enabled = false;
+        }
+
+        private void DGV_LH_Click(object sender, EventArgs e)
+        {
+            if (b_themLH.Enabled == false)
+            {
+                MessageBox.Show("Bạn đang ở trạng thái thêm mới.", "Thống báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TBtenLH.Focus();
+                return;
+            }
+
+            if (DTLH.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            b_xoaLH.Enabled = true;
+
+            TBtenLH.Text = DGV_LH.CurrentRow.Cells["Tên loại hàng"].Value.ToString();
+        }
+
+        private void b_themLH_Click(object sender, EventArgs e)
+        {
+            b_xoaLH.Enabled = false;
+            b_luuLH.Enabled = true;
+            ResetValues();
+            TBtenLH.Enabled = true;
+            TBtenLH.Focus();
+        }
+
+        private void b_xoaLH_Click(object sender, EventArgs e)
+        {
+            string query;
+            if (DTLH.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //Nếu chưa chọn bản ghi nào.
+            if (TBtenLH.Text == "")
+            {
+                MessageBox.Show("Không có bản ghi trong bộ nhớ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (MessageBox.Show("bạn có muốn xóa hay không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                query = "Delete LH where TEN_LH = N'" + TBtenLH.Text + "'";
+                ChayLenh(query, Connect);
+                LoadDGV();
+                ResetValues();
+            }
+        }
+
+        private void b_luuLH_Click(object sender, EventArgs e)
+        {
+            string query;
+            if (TBtenLH.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn chưa nhập tên loại hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TBtenLH.Focus();
+                return;
+            }
+
+            query = "Select TEN_LH from LH where TEN_LH = N'" + TBtenLH.Text.Trim() + "'";
+
+            if (KiemTraMa(query, StringConnect))
+            {
+                MessageBox.Show("Loại hàng này đã có sẵn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TBtenLH.Focus();
+                return;
+            }
+
+            query = "Insert into LH(TEN_LH) values (N'" + TBtenLH.Text.Trim() + "')";
+            ChayLenh(query, Connect);   //Thực hiện câu lệnh sql.
+            LoadDGV(); //Cập nhật lại DataGridView.
+            ResetValues();
+            b_themLH.Enabled = true;
+            TBtenLH.Enabled = false;
+            b_luuLH.Enabled = false;
+            b_xoaLH.Enabled = false;
+        }
+
+        private void b_dongLH_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 
