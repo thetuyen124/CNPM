@@ -784,7 +784,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.125677F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.21777F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.93608F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel6.Controls.Add(this.TBghichuKH, 4, 5);
             this.tableLayoutPanel6.Controls.Add(this.TBcmtKH, 4, 3);
             this.tableLayoutPanel6.Controls.Add(this.TBsdtKH, 4, 1);
@@ -816,25 +816,25 @@
             // TBghichuKH
             // 
             this.TBghichuKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBghichuKH.Location = new System.Drawing.Point(451, 74);
+            this.TBghichuKH.Location = new System.Drawing.Point(450, 74);
             this.TBghichuKH.Name = "TBghichuKH";
-            this.TBghichuKH.Size = new System.Drawing.Size(214, 21);
+            this.TBghichuKH.Size = new System.Drawing.Size(213, 21);
             this.TBghichuKH.TabIndex = 10;
             // 
             // TBcmtKH
             // 
             this.TBcmtKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBcmtKH.Location = new System.Drawing.Point(451, 40);
+            this.TBcmtKH.Location = new System.Drawing.Point(450, 40);
             this.TBcmtKH.Name = "TBcmtKH";
-            this.TBcmtKH.Size = new System.Drawing.Size(214, 21);
+            this.TBcmtKH.Size = new System.Drawing.Size(213, 21);
             this.TBcmtKH.TabIndex = 11;
             // 
             // TBsdtKH
             // 
             this.TBsdtKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBsdtKH.Location = new System.Drawing.Point(451, 7);
+            this.TBsdtKH.Location = new System.Drawing.Point(450, 7);
             this.TBsdtKH.Name = "TBsdtKH";
-            this.TBsdtKH.Size = new System.Drawing.Size(214, 21);
+            this.TBsdtKH.Size = new System.Drawing.Size(213, 21);
             this.TBsdtKH.TabIndex = 12;
             // 
             // label15
@@ -855,7 +855,7 @@
             this.TBmaKH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBmaKH.Location = new System.Drawing.Point(103, 7);
             this.TBmaKH.Name = "TBmaKH";
-            this.TBmaKH.Size = new System.Drawing.Size(200, 21);
+            this.TBmaKH.Size = new System.Drawing.Size(199, 21);
             this.TBmaKH.TabIndex = 7;
             // 
             // label19
@@ -863,7 +863,7 @@
             this.label19.AutoSize = true;
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(363, 37);
+            this.label19.Location = new System.Drawing.Point(362, 37);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(82, 23);
             this.label19.TabIndex = 4;
@@ -887,7 +887,7 @@
             this.TBtenKH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBtenKH.Location = new System.Drawing.Point(103, 40);
             this.TBtenKH.Name = "TBtenKH";
-            this.TBtenKH.Size = new System.Drawing.Size(200, 21);
+            this.TBtenKH.Size = new System.Drawing.Size(199, 21);
             this.TBtenKH.TabIndex = 9;
             // 
             // TBdiachiKH
@@ -895,7 +895,7 @@
             this.TBdiachiKH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TBdiachiKH.Location = new System.Drawing.Point(103, 74);
             this.TBdiachiKH.Name = "TBdiachiKH";
-            this.TBdiachiKH.Size = new System.Drawing.Size(200, 21);
+            this.TBdiachiKH.Size = new System.Drawing.Size(199, 21);
             this.TBdiachiKH.TabIndex = 8;
             // 
             // label17
@@ -915,7 +915,7 @@
             this.label18.AutoSize = true;
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(363, 4);
+            this.label18.Location = new System.Drawing.Point(362, 4);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(82, 26);
             this.label18.TabIndex = 3;
@@ -928,7 +928,7 @@
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label20.Location = new System.Drawing.Point(363, 71);
+            this.label20.Location = new System.Drawing.Point(362, 71);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(82, 25);
             this.label20.TabIndex = 5;
