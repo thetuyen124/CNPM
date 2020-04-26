@@ -8,7 +8,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using COMExcel = Microsoft.Office.Interop.Excel;
 namespace CNPM
 {
     public partial class homeql : Form
@@ -1390,6 +1390,322 @@ namespace CNPM
         private void b_dongLH_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dGV_BAOCAO_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tB_THANG_TextChanged(object sender, EventArgs e)
+        {
+            ResetValuesBC();
+        }
+        public static bool IsNumber(string txt)
+        {
+            foreach (Char c in txt)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
+        private void ResetValuesBC()
+        {
+            bt_INBAOCAO.Enabled = false;
+            bt_LAYBAOCAO.Enabled = true;
+            bt_BCSP_PBN.Enabled = false;
+            bt_BCSP_DTCN.Enabled = false;
+            bt_BCSP_BRNN.Enabled = false;
+            dGV_BAOCAO.DataSource = null;
+            tB_TONGDOANHTHU.Text = "";
+            tB_SODONHANG.Text = "";
+        }
+        DataTable DTBC;
+
+        private void tB_NAM_TextChanged(object sender, EventArgs e)
+        {
+            ResetValuesBC();
+        }
+
+        private void bt_LAYBAOCAO_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bt_BCSP_BRNN.Enabled = true;
+                bt_BCSP_DTCN.Enabled = true;
+                bt_BCSP_PBN.Enabled = true;
+                bt_INBAOCAO.Enabled = true;
+                IsNumber(tB_THANG.Text);
+                IsNumber(tB_NAM.Text);
+
+                if (tB_THANG.Text == "")
+                {
+                    MessageBox.Show("Bạn chưa nhập tháng cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tB_THANG.Focus();
+                    ResetValuesBC();
+                    return;
+                }
+
+                if (tB_NAM.Text == "")
+                {
+                    MessageBox.Show("Bạn chưa nhập năm cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tB_NAM.Focus();
+                    ResetValuesBC();
+                    return;
+                }
+
+                string sql;
+                sql = "Select NGAYBAN as [Ngày], TotalOrder as [Số đơn đặt hàng], TotalMoney as [Tổng danh thu ngày] from f_R_InfoMonthly('" + tB_THANG.Text.Trim() + "', '" + tB_NAM.Text.Trim() + "')";
+                DTBC = LayDuLieuRaBang(sql, StringConnect);
+                dGV_BAOCAO.DataSource = DTBC;
+
+                sql = "Select * from f_R_TotalMonthly('" + tB_THANG.Text.Trim() + "', '" + tB_NAM.Text.Trim() + "')";
+                DTBC = LayDuLieuRaBang(sql, StringConnect);
+                if (DTBC != null)
+                {
+                    foreach (DataRow DR in DTBC.Rows)
+                    {
+                        tB_SODONHANG.Text = DR["TotalOrder"].ToString();
+                        tB_TONGDOANHTHU.Text = DR["TotalMoney"].ToString();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Bạn nhập sai kiểu ký tư", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bt_BCSP_PBN_Click(object sender, EventArgs e)
+        {
+            bt_BCSP_PBN.Enabled = false;
+            bt_BCSP_DTCN.Enabled = true;
+            bt_BCSP_BRNN.Enabled = true;
+
+            if (tB_THANG.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập tháng cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tB_THANG.Focus();
+                ResetValuesBC();
+                return;
+            }
+
+            if (tB_NAM.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập năm cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tB_NAM.Focus();
+                ResetValuesBC();
+                return;
+            }
+
+            string sql;
+            sql = "select Distinct IDP as [Mã sản phẩm], left(trim(TEN_SP), charindex('_', TRIM(TEN_SP))-1) as [Tên sản phẩm], TotalOrder_P as [Số đơn hàng] from f_R_PMO('" + tB_THANG.Text + "','" + tB_NAM.Text + "'), SP " +
+                "where left(trim(MA_SP), charindex('_', TRIM(MA_SP))-1) = IDP";
+            DTBC = LayDuLieuRaBang(sql, StringConnect);
+            dGV_BAOCAO.DataSource = DTBC;
+        }
+
+        private void bt_BCSP_BRNN_Click(object sender, EventArgs e)
+        {
+            bt_BCSP_BRNN.Enabled = false;
+            bt_BCSP_PBN.Enabled = true;
+            bt_BCSP_DTCN.Enabled = true;
+
+            if (tB_THANG.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập tháng cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tB_THANG.Focus();
+                ResetValuesBC();
+                return;
+            }
+
+            if (tB_NAM.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập năm cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tB_NAM.Focus();
+                ResetValuesBC();
+                return;
+            }
+
+            string sql;
+            sql = "Select Distinct IDP as [Mã sản phẩm], left(trim(TEN_SP), charindex('_', TRIM(TEN_SP))-1) as [Tên sản phẩm], TotalON_P as [Số lượnng bán] from f_R_PMON('" + tB_THANG.Text + "', '" + tB_NAM.Text + "'), SP " +
+                "where left(trim(MA_SP), charindex('_', TRIM(MA_SP))-1) = IDP";
+            DTBC = LayDuLieuRaBang(sql, StringConnect);
+            dGV_BAOCAO.DataSource = DTBC;
+        }
+
+        private void bt_BCSP_DTCN_Click(object sender, EventArgs e)
+        {
+            bt_BCSP_DTCN.Enabled = false;
+            bt_BCSP_BRNN.Enabled = true;
+            bt_BCSP_PBN.Enabled = true;
+
+            if (tB_THANG.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập tháng cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tB_THANG.Focus();
+                ResetValuesBC();
+                return;
+            }
+
+            if (tB_NAM.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập năm cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tB_NAM.Focus();
+                ResetValuesBC();
+                return;
+            }
+
+            string sql;
+            sql = "Select Distinct IDP as [Mã sản phẩm], left(trim(TEN_SP), charindex('_', TRIM(TEN_SP))-1) as [Tên sản phẩm], TotalMoney_P as [Doanh thu] from f_R_PMM('" + tB_THANG.Text + "', '" + tB_NAM.Text + "'), SP " +
+                "where left(trim(MA_SP), charindex('_', TRIM(MA_SP))-1) = IDP";
+            DTBC = LayDuLieuRaBang(sql, StringConnect);
+            dGV_BAOCAO.DataSource = DTBC;
+        }
+
+        private void bt_DONGBC_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bt_INBAOCAO_Click(object sender, EventArgs e)
+        {
+            if (tB_THANG.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập tháng cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tB_THANG.Focus();
+                ResetValuesBC();
+                return;
+            }
+
+            if (tB_NAM.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập năm cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tB_NAM.Focus();
+                ResetValuesBC();
+                return;
+            }
+
+            COMExcel.Application ExApp = new COMExcel.Application();
+            COMExcel.Workbook ExBook;
+            COMExcel.Worksheet ExSheet;
+            COMExcel.Range ExRange;
+            string sql;
+            int hang = 0, cot = 0;
+            ExBook = ExApp.Workbooks.Add(COMExcel.XlWBATemplate.xlWBATWorksheet);
+            ExSheet = ExBook.Worksheets[1];
+
+            //Ð?nh d?ng chung.
+            ExRange = ExSheet.Cells[1, 1];
+            ExRange.Range["A1:Z300"].Font.Name = "Times new roman";
+            ExRange.Range["A1:B3"].Font.Size = 10;
+            ExRange.Range["A1:B3"].Font.Bold = true;
+            ExRange.Range["A1:B3"].Font.ColorIndex = 5;
+            ExRange.Range["A1:A1"].ColumnWidth = 15;
+            ExRange.Range["B1:B1"].ColumnWidth = 15;
+            ExRange.Range["A1:B1"].MergeCells = true;
+            ExRange.Range["A1:B1"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
+            ExRange.Range["A1:B1"].Value = "CỬA HÀNG GIÀY DÉP";
+            ExRange.Range["A2:B2"].MergeCells = true;
+            ExRange.Range["A2:B2"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
+            ExRange.Range["A2:B2"].Value = "Ðịa chỉ: Tây Hồ - Hà N?i";
+            ExRange.Range["A3:B3"].MergeCells = true;
+            ExRange.Range["A3:B3"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
+            ExRange.Range["A3:B3"].Value = "Số điện thọai : 0989999999";
+            ExRange.Range["C5:F5"].Font.Size = 18;
+            ExRange.Range["C5:F5"].Font.Bold = true;
+            ExRange.Range["C5:F5"].Font.ColorIndex = 3;
+            ExRange.Range["C5:F5"].MergeCells = true;
+            ExRange.Range["C5:F5"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
+            ExRange.Range["C5:F5"].Value = "BÁO CÁO DOANH THU THÁNG " + tB_THANG.Text + " NĂM " + tB_NAM.Text + "";
+
+            //Thông tin báo cáo
+            ExRange.Range["B7:D7"].Font.Size = 14;
+            ExRange.Range["B7:D7"].MergeCells = true;
+            ExRange.Range["B7:D7"].Value = "Danh sách sản phẩm phổ biến nhất";
+            ExRange.Range["B7:D7"].Font.Bold = true;
+            sql = sql = "select Distinct IDP, left(trim(TEN_SP), charindex('_', TRIM(TEN_SP))-1), TotalOrder_P from f_R_PMO('" + tB_THANG.Text + "','" + tB_NAM.Text + "'), SP " +
+                "where left(trim(MA_SP), charindex('_', TRIM(MA_SP))-1) = IDP";
+            DTBC = LayDuLieuRaBang(sql, StringConnect);
+            ExRange.Range["A9:D9"].Font.Bold = true;
+            ExRange.Range["A9:D9"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
+            ExRange.Range["C9:D9"].ColumnWidth = 14;
+            ExRange.Range["C9:C9"].ColumnWidth = 40;
+            ExRange.Range["A9:A9"].Value = "STT";
+            ExRange.Range["B9:B9"].Value = "Mã sản phẩm";
+            ExRange.Range["C9:C9"].Value = "Tên sản phẩm";
+            ExRange.Range["D9:D9"].Value = "Số đơn hàng";
+            for (hang = 0; hang < DTBC.Rows.Count; hang++)
+            {
+                ExSheet.Cells[1][hang + 10] = hang + 1;
+                for (cot = 0; cot < DTBC.Columns.Count; cot++)
+                {
+                    ExSheet.Cells[cot + 2][hang + 10] = DTBC.Rows[hang][cot].ToString();
+                }
+            }
+
+            ExRange = ExSheet.Cells[2][hang + 11];
+            ExRange.Font.Bold = true;
+            ExRange.Font.Size = 14;
+            ExRange.Value2 = "Danh sách sản phẩm có số lượng bán ra nhiều nhất ";
+            sql = "Select Distinct IDP as [Mã sản phẩm], left(trim(TEN_SP), charindex('_', TRIM(TEN_SP))-1) as [Tên sản phẩm], TotalON_P as [Số lượng bán] from f_R_PMON('" + tB_THANG.Text + "', '" + tB_NAM.Text + "'), SP " +
+                "where left(trim(MA_SP), charindex('_', TRIM(MA_SP))-1) = IDP";
+            DTBC = LayDuLieuRaBang(sql, StringConnect);
+            ExRange = ExSheet.Cells[1][hang + 13];
+            ExRange.ColumnWidth = 14;
+            ExRange.Range["C1:C1"].ColumnWidth = 40;
+            ExRange.HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
+            ExRange.Range["A1:D1"].Font.Bold = true;
+            ExRange.Range["A1:A1"].Value = "STT";
+            ExRange.Range["B1:B1"].Value = "Mã sản phẩm";
+            ExRange.Range["C1:C1"].Value = "Tên sản phẩm";
+            ExRange.Range["D1:D1"].Value = "Số luợng bán ra";
+            for (hang = 0; hang < DTBC.Rows.Count; hang++)
+            {
+                ExSheet.Cells[1][hang + 15] = hang + 1;
+                for (cot = 0; cot < DTBC.Columns.Count; cot++)
+                {
+                    ExSheet.Cells[cot + 2][hang + 15] = DTBC.Rows[hang][cot].ToString();
+                }
+            }
+
+            ExRange = ExSheet.Cells[2][hang + 16];
+            ExRange.Font.Bold = true;
+            ExRange.Font.Size = 14;
+            ExRange.Value2 = "Danh sách sản phẩm có doanh thu nhiều nhất ";
+            sql = "Select Distinct IDP as [Mã sản phẩm], left(trim(TEN_SP), charindex('_', TRIM(TEN_SP))-1) as [Tên sản phẩm], TotalMoney_P as [Doanh thu] from f_R_PMM('" + tB_THANG.Text + "', '" + tB_NAM.Text + "'), SP " +
+                "where left(trim(MA_SP), charindex('_', TRIM(MA_SP))-1) = IDP";
+            DTBC = LayDuLieuRaBang(sql, StringConnect);
+            ExRange = ExSheet.Cells[1][hang + 18];
+            ExRange.ColumnWidth = 14;
+            ExRange.HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
+            ExRange.Range["A1:D1"].Font.Bold = true;
+            ExRange.Range["A1:A1"].Value = "STT";
+            ExRange.Range["B1:B1"].Value = "Mã sản phẩm";
+            ExRange.Range["C1:C1"].Value = "Tên sản phẩm";
+            ExRange.Range["D1:D1"].Value = "Doanh thu";
+            for (hang = 0; hang < DTBC.Rows.Count; hang++)
+            {
+                ExSheet.Cells[1][hang + 21] = hang + 1;
+                for (cot = 0; cot < DTBC.Columns.Count; cot++)
+                {
+                    ExSheet.Cells[cot + 2][hang + 21] = DTBC.Rows[hang][cot].ToString();
+                }
+            }
+
+            ExRange = ExSheet.Cells[2][hang + 22];
+            ExRange.Font.Bold = true;
+            ExRange.Font.Size = 14;
+            ExRange.Value2 = "Tổng số lượnng đơn hàng tháng " + tB_THANG.Text + " là: " + tB_SODONHANG.Text + "";
+
+            ExRange = ExSheet.Cells[2][hang + 24];
+            ExRange.Font.Bold = true;
+            ExRange.Font.Size = 14;
+            ExRange.Value2 = "Tổng doanh thu tháng " + tB_THANG.Text + " là: " + tB_TONGDOANHTHU.Text + "";
+
+            ExSheet.Name = "Báo cáo doanh thu tháng";
+            ExApp.Visible = true;
         }
     }
 }
