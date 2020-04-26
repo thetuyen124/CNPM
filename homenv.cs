@@ -14,11 +14,10 @@ namespace CNPM
     
     public partial class homenv : Form
     {
+        Dictionary<string, int> a = new Dictionary<string, int>();
         double tt=0;
         private string StringConnect;
         private SqlConnection Connect = null;
-        string tensphd="\n\n";
-        string giahd = "\n\n";
 
         string ten;//lưu tên nhân viên đang đăng nhập
         string ma; //Lưu mã nhân viên dùng bên dưới :>
@@ -65,7 +64,7 @@ namespace CNPM
         {
             SqlDataAdapter run;//lấy dữ liệu lấy từ CSDL
             DataSet bang = new DataSet();//luu du lieu lay tu csdl
-            string query = "select TEN_SP from SP where SOLUONG >0";//query sql
+            string query = "select DISTINCT TEN_SP from SP where SOLUONG >0";//query sql
             run = new SqlDataAdapter(query, Connect);
             run.Fill(bang);
             cbtenhang.DataSource = bang.Tables[0];
@@ -334,20 +333,19 @@ namespace CNPM
         private void btthanhtoan_Click(object sender, EventArgs e)
         {
             
-            DialogResult res = MessageBox.Show("Bạn có chắc chắn muốn thanh toán?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult res = MessageBox.Show("Bạn có chắc chắn muốn thanh toán?", "Xác nhận thanh toán", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(res==DialogResult.Yes)
             {
-                check_sp(ref tensphd, ref giahd);
-                Form a = new hoadon(tensphd, giahd, lbtongtien.Text);
-                a.Show();
+                check_sp();
+                Form c = new hoadon( lbtongtien.Text,StringConnect,ref a);
+                c.Show();
                 reset();
             }
-
         }
 
         private void btthem_Click(object sender, EventArgs e)
         {
-            string query="SELECT GIABAN FROM SP where TEN_SP='" + cbtenhang.Text + "'";
+            string query="SELECT GIABAN FROM SP where TEN_SP=N'" + cbtenhang.Text + "'";
             string giaban;
             using (SqlCommand cmd = new SqlCommand(query, Connect))
             {
@@ -361,6 +359,8 @@ namespace CNPM
             
             tt += Convert.ToDouble(giaban);
             lbtongtien.Text =tt.ToString();
+            updatecbtenhang();
+            updatedgvsp();
         }
 
         private void cbtenhang_SelectedValueChanged(object sender, EventArgs e)
@@ -368,16 +368,14 @@ namespace CNPM
             cbsize.Enabled = true;
             SqlDataAdapter run;//lấy dữ liệu lấy từ CSDL
             DataSet bang = new DataSet();//luu du lieu lay tu csdl
-            string query = "select SIZE from SP where TEN_SP ='"+cbtenhang.Text+"'";//query sql
+            string query = "select SIZE from SP where TEN_SP =N'"+cbtenhang.Text+"'";//query sql
             run = new SqlDataAdapter(query, Connect);
             run.Fill(bang);
             cbsize.DataSource = bang.Tables[0];
             cbsize.DisplayMember = "SIZE";
         }
-        private void check_sp(ref string tensp,ref string giaban)
+        private void check_sp()
         {
-            Dictionary<string, int> a = new Dictionary<string, int>();
-            //lbtongtien.Text = Convert.ToString(dgvgiohang.Rows[0].Cells[0].Value);
             int dem = dgvgiohang.RowCount;
             for (int i=0; i<dem;i++)
             {
@@ -390,16 +388,22 @@ namespace CNPM
                 else
                     a[b] = gia;
             }
-            foreach(KeyValuePair<string,int> r in a)
-            {
-                tensp += r.Key + "\n \n";
-                giaban += Convert.ToString(r.Value) + " đ\n \n";
-            }
         }
         private void reset()
         {
             dgvgiohang.Rows.Clear();
             lbtongtien.Text = "0";
         }
+
+        private void bthuy_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Bạn có chắc chắn muốn hủy đơn hàng?", "Xác nhận hủy đơn hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                reset();
+                a.Clear();
+            }
+        }
+        
     }
 }

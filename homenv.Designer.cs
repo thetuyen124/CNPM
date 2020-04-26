@@ -51,9 +51,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.btthanhtoan = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lbtongtien = new System.Windows.Forms.Label();
+            this.btthanhtoan = new System.Windows.Forms.Button();
+            this.bthuy = new System.Windows.Forms.Button();
             this.dgvgiohang = new System.Windows.Forms.DataGridView();
             this.tenhang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -439,13 +440,15 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnCount = 4;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
-            this.tableLayoutPanel5.Controls.Add(this.btthanhtoan, 2, 0);
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.lbtongtien, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btthanhtoan, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.bthuy, 2, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 602);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -454,18 +457,6 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(912, 46);
             this.tableLayoutPanel5.TabIndex = 0;
-            // 
-            // btthanhtoan
-            // 
-            this.btthanhtoan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btthanhtoan.Location = new System.Drawing.Point(775, 2);
-            this.btthanhtoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btthanhtoan.Name = "btthanhtoan";
-            this.btthanhtoan.Size = new System.Drawing.Size(134, 42);
-            this.btthanhtoan.TabIndex = 0;
-            this.btthanhtoan.Text = "Thanh Toán";
-            this.btthanhtoan.UseVisualStyleBackColor = true;
-            this.btthanhtoan.Click += new System.EventHandler(this.btthanhtoan_Click);
             // 
             // label2
             // 
@@ -484,10 +475,33 @@
             this.lbtongtien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbtongtien.Location = new System.Drawing.Point(143, 0);
             this.lbtongtien.Name = "lbtongtien";
-            this.lbtongtien.Size = new System.Drawing.Size(626, 46);
+            this.lbtongtien.Size = new System.Drawing.Size(486, 46);
             this.lbtongtien.TabIndex = 2;
             this.lbtongtien.Text = "0";
             this.lbtongtien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btthanhtoan
+            // 
+            this.btthanhtoan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btthanhtoan.Location = new System.Drawing.Point(775, 2);
+            this.btthanhtoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btthanhtoan.Name = "btthanhtoan";
+            this.btthanhtoan.Size = new System.Drawing.Size(134, 42);
+            this.btthanhtoan.TabIndex = 0;
+            this.btthanhtoan.Text = "Thanh Toán";
+            this.btthanhtoan.UseVisualStyleBackColor = true;
+            this.btthanhtoan.Click += new System.EventHandler(this.btthanhtoan_Click);
+            // 
+            // bthuy
+            // 
+            this.bthuy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bthuy.Location = new System.Drawing.Point(635, 3);
+            this.bthuy.Name = "bthuy";
+            this.bthuy.Size = new System.Drawing.Size(134, 40);
+            this.bthuy.TabIndex = 3;
+            this.bthuy.Text = "Hủy đơn";
+            this.bthuy.UseVisualStyleBackColor = true;
+            this.bthuy.Click += new System.EventHandler(this.bthuy_Click);
             // 
             // dgvgiohang
             // 
@@ -1623,5 +1637,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tenhang;
         private System.Windows.Forms.DataGridViewTextBoxColumn size;
         private System.Windows.Forms.DataGridViewTextBoxColumn dongia;
+        private System.Windows.Forms.Button bthuy;
     }
 }
