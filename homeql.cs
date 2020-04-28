@@ -1392,6 +1392,8 @@ namespace CNPM
             this.Close();
         }
 
+
+        //BC tháng của Vinh//
         private void dGV_BAOCAO_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -1706,6 +1708,115 @@ namespace CNPM
 
             ExSheet.Name = "Báo cáo doanh thu tháng";
             ExApp.Visible = true;
+        }
+
+        //BCN của TÙng//
+        DataTable DTBCN;
+
+        //hàm kiểm tra là số
+        public static bool IsNumberBCN(string txt)
+        {
+            foreach (Char c in txt)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
+
+        //Hàm lấy dữ liệu từ câu lệnh SQL.
+        public static string GetFieldValues(string sql, SqlConnection Con)
+        {
+            string ma = "";
+            SqlCommand Cmd = new SqlCommand(sql, Con);
+            SqlDataReader reader;
+            // ExecuteReader thực thi câu lệnh sql yêu cầu dữ liệu trả về: Select
+            reader = Cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                ma = reader.GetValue(0).ToString();
+            }
+            reader.Close();
+            return ma;
+        }
+
+        private void ResetValuesBCN()
+        {
+            b_laybcn.Enabled = true;
+            chartBCN.DataSource = null;
+            TBbcnlaisuat.Text = "";
+            TBbcntongdonhang.Text = "";
+        }
+
+        private void TBbcnnam_TextChanged(object sender, EventArgs e)
+        {
+            ResetValuesBCN();
+        }
+
+        private void b_laybcn_Click(object sender, EventArgs e)
+        {
+            {
+                try
+                {
+                    b_laybcn.Enabled = false;
+                    IsNumberBCN(TBbcnnam.Text);
+                    string sql;
+
+                    if (TBbcnnam.Text == "")
+                    {
+                        MessageBox.Show("Bạn chưa nhập năm cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        TBbcnnam.Focus();
+                        ResetValuesBCN();
+                        return;
+                    }
+
+                    sql = "Select * from f_R_TotalAnnual('" + TBbcnnam.Text + "')";
+                    DTBCN = LayDuLieuRaBang(sql, StringConnect);
+                    if (DTBCN != null)
+                    {
+                        foreach (DataRow DR in DTBCN.Rows)
+                        {
+                            TBbcntongdonhang.Text = DR["TotalOrder"].ToString();
+                            TBbcntongtien.Text = DR["TotalMoney"].ToString();
+                        }
+                    }
+
+                    sql = "Select round(((TotalMoney - TotalMoneyEntry) * 100 / TotalMoneyEntry),0) from f_R_TotalMoneyEntry('" + TBbcnnam.Text + "'), f_R_TotalAnnual('" + TBbcnnam.Text + "')";
+
+                    sql = "Select round((TotalMoney - TotalMoneyEntry),0) from f_R_TotalMoneyEntry('" + TBbcnnam.Text + "'), f_R_TotalAnnual('" + TBbcnnam.Text + "')";
+                    TBbcnlaisuat.Text = GetFieldValues(sql, Connect);
+
+                    sql = "Select N'Tháng ' + cast(DATEPART(MM, Convert(date, NGAYNHAP))as char(2)) as [Tháng], SUM(TotalMoney) as [Doanh thu]" +
+                        "from v_R_InfoMonthly where cast(DATEPART(YYYY, Convert(date, NGAYNHAP)) as char(4)) = '" + TBbcnnam.Text + "' Group by cast(DATEPART(MM, Convert(date, NGAYNHAP)) as char(2))";
+                    DTBCN = LayDuLieuRaBang(sql, StringConnect);
+                    chartBCN.DataSource = DTBCN;
+                    chartBCN.Series["Doanh thu"].YValueMembers = "Doanh thu";
+                    chartBCN.Series["Doanh thu"].XValueMember = "Tháng";
+
+                    chartBCN.Titles.Clear();
+                    chartBCN.Titles.Add("Doanh thu theo tháng");
+
+                    chartBCN.ChartAreas["ChartArea1"].AxisX.MajorGrid.Enabled = false;
+
+                    chartBCN.ChartAreas[0].AxisY.Title = "Doanh thu (đồng)";
+                    chartBCN.ChartAreas[0].AxisY.TitleFont = new Font("Times New Roman", 10, FontStyle.Bold);
+                    chartBCN.ChartAreas[0].AxisX.Title = "Các tháng hoạt động trong năm " + TBbcnnam.Text;
+                    chartBCN.ChartAreas[0].AxisX.TitleFont = new Font("Times New Roman", 10, FontStyle.Bold);
+
+                    if (DTBCN != null)
+                    {
+                        foreach (DataRow DR in DTBCN.Rows)
+                        {
+                            chartBCN.Series["Doanh thu"].Label = DR["Doanh thu"].ToString();
+                        }
+                    }
+                }
+
+                catch (Exception)
+                {
+                    MessageBox.Show("Bạn nhập sai kiểu ký tự", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
