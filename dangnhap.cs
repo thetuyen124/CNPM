@@ -20,7 +20,7 @@ namespace CNPM
 
         //lỗi ở đây thì sửa cái StringConect 
 
-        private string StringConnect = "Data Source=LAPTOP-KQUH647R;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
+        private string StringConnect = "Data Source=DESKTOP-R9IA4BP\\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
         private SqlConnection Connect = null;
         public dangnhap()
         {
@@ -37,7 +37,7 @@ namespace CNPM
         {
             Connect = new SqlConnection(StringConnect); //Khởi tạo kết nối với đường dẫn StringConnect
             Connect.Open();
-            quenmatkhau.Hide();
+            //quenmatkhau.Hide();
             dem = 0;
         }
 
