@@ -47,56 +47,12 @@ namespace CNPM
             Connect.Open();
             getData();
             LoadDGV();
+            LoadDGVNCC();
+            b_luuLH.Enabled = false;
+            b_xoaLH.Enabled = false;
+            b_dongLH.Enabled = false;
         }
 
-        private void quảnLýNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tcql.SelectedIndex = 2;
-        }
-
-        private void quảnLýLoạiHàngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tcql.SelectedIndex = 3;
-        }
-
-        private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tcql.SelectedIndex = 4;
-        }
-
-        private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tcql.SelectedIndex = 5;
-        }
-
-        private void báoCáoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tcql.SelectedIndex = 6;
-        }
-
-        private void đăngXuấtToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Form a =new dangnhap();
-            a.Show();
-            this.Hide();
-        }
-
-        private void thêmKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form a = new nvKH(StringConnect);
-            a.Show();
-        }
-
-        private void xóaKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form a = new nvNCC(StringConnect);
-            a.Show();
-        }
-
-        private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            tcql.SelectedIndex = 1;
-        }
 
         private void tcql_Click(object sender, EventArgs e)
         {
@@ -388,8 +344,8 @@ namespace CNPM
                 return;
             }
 
-            query = "Insert into SP(MA_SP, TEN_SP, MA_NCC, MA_LH, SIZE, GIABAN, ANH, GHICHU) values('" + tB_Ma.Text.Trim() + "_S" + nUD_SP.Text + "', N'" + tB_TenSP.Text.Trim() + "_S" + nUD_SP.Text + "', "
-                + cB_NCC.SelectedValue.ToString() + ", " + cB_LH.SelectedValue.ToString() + ", " + nUD_SP.Text.Trim() + ", " + tB_GiaBan.Text.Trim() + ", N'" + rTB_HinhAnh.Text + "', N'" + rTB_GhiChu.Text.Trim() + "')";
+            query = "Insert into SP(MA_SP, TEN_SP, MA_NCC, MA_LH, SIZE, GIABAN, ANH, GHICHU,GIANHAP) values('" + tB_Ma.Text.Trim() + "_S" + nUD_SP.Text + "', N'" + tB_TenSP.Text.Trim() + "_S" + nUD_SP.Text + "', "
+                + cB_NCC.SelectedValue.ToString() + ", " + cB_LH.SelectedValue.ToString() + ", " + nUD_SP.Text.Trim() + ", " + tB_GiaBan.Text.Trim() + ", N'" + rTB_HinhAnh.Text + "', N'" + rTB_GhiChu.Text.Trim() + "',0)";
 
             ChayLenh(query, Connect);
             LoadDGVSP();
@@ -882,7 +838,7 @@ namespace CNPM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string query = "update SP set SOLUONG  +='" + txtSL.SelectedItem + "' where TEN_SP ='" + txtSP.Text + "'";
+            string query = "update SP set SOLUONG  =" + txtSL.Text + " ,GIANHAP="+txtGN.Text+" where TEN_SP =N'" + txtSP.Text + "'";
             SqlCommand cmd = new SqlCommand(query, Connect);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Update!");
@@ -1328,6 +1284,7 @@ namespace CNPM
         {
             b_xoaLH.Enabled = false;
             b_luuLH.Enabled = true;
+            b_dongLH.Enabled = true;
             ResetValues();
             TBtenLH.Enabled = true;
             TBtenLH.Focus();
@@ -1389,7 +1346,9 @@ namespace CNPM
 
         private void b_dongLH_Click(object sender, EventArgs e)
         {
-            this.Close();
+            b_luuLH.Enabled = false;
+            b_dongLH.Enabled = false;
+            TBtenLH.Text = "";
         }
 
 
@@ -1418,7 +1377,6 @@ namespace CNPM
             bt_LAYBAOCAO.Enabled = true;
             bt_BCSP_PBN.Enabled = false;
             bt_BCSP_DTCN.Enabled = false;
-            bt_BCSP_BRNN.Enabled = false;
             dGV_BAOCAO.DataSource = null;
             tB_TONGDOANHTHU.Text = "";
             tB_SODONHANG.Text = "";
@@ -1434,7 +1392,6 @@ namespace CNPM
         {
             try
             {
-                bt_BCSP_BRNN.Enabled = true;
                 bt_BCSP_DTCN.Enabled = true;
                 bt_BCSP_PBN.Enabled = true;
                 bt_INBAOCAO.Enabled = true;
@@ -1458,7 +1415,7 @@ namespace CNPM
                 }
 
                 string sql;
-                sql = "Select NGAYBAN as [Ngày], TotalOrder as [Số đơn đặt hàng], TotalMoney as [Tổng danh thu ngày] from f_R_InfoMonthly('" + tB_THANG.Text.Trim() + "', '" + tB_NAM.Text.Trim() + "')";
+                sql = "Select NGAYBAN as [Ngày], TotalOrder as [Số đơn đặt hàng], TotalMoney as [Tổng danh thu ngày] from f_R_InfoMonthly('" + tB_THANG.Text + "', '" + tB_NAM.Text + "')";
                 DTBC = LayDuLieuRaBang(sql, StringConnect);
                 dGV_BAOCAO.DataSource = DTBC;
 
@@ -1483,7 +1440,6 @@ namespace CNPM
         {
             bt_BCSP_PBN.Enabled = false;
             bt_BCSP_DTCN.Enabled = true;
-            bt_BCSP_BRNN.Enabled = true;
 
             if (tB_THANG.Text == "")
             {
@@ -1502,45 +1458,17 @@ namespace CNPM
             }
 
             string sql;
-            sql = "select Distinct IDP as [Mã sản phẩm], left(trim(TEN_SP), charindex('_', TRIM(TEN_SP))-1) as [Tên sản phẩm], TotalOrder_P as [Số đơn hàng] from f_R_PMO('" + tB_THANG.Text + "','" + tB_NAM.Text + "'), SP " +
-                "where left(trim(MA_SP), charindex('_', TRIM(MA_SP))-1) = IDP";
+            sql = "select Distinct IDP as [Mã sản phẩm], left((TEN_SP), charindex('_', (TEN_SP))-1) as [Tên sản phẩm], TotalOrder_P as [Số đơn hàng] from f_R_PMO('" + tB_THANG.Text + "','" + tB_NAM.Text + "'), SP " +
+                "where left((MA_SP), charindex('_', (MA_SP))-1) = IDP";
             DTBC = LayDuLieuRaBang(sql, StringConnect);
             dGV_BAOCAO.DataSource = DTBC;
         }
 
-        private void bt_BCSP_BRNN_Click(object sender, EventArgs e)
-        {
-            bt_BCSP_BRNN.Enabled = false;
-            bt_BCSP_PBN.Enabled = true;
-            bt_BCSP_DTCN.Enabled = true;
-
-            if (tB_THANG.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập tháng cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tB_THANG.Focus();
-                ResetValuesBC();
-                return;
-            }
-
-            if (tB_NAM.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập năm cần báo cáo.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tB_NAM.Focus();
-                ResetValuesBC();
-                return;
-            }
-
-            string sql;
-            sql = "Select Distinct IDP as [Mã sản phẩm], left(trim(TEN_SP), charindex('_', TRIM(TEN_SP))-1) as [Tên sản phẩm], TotalON_P as [Số lượnng bán] from f_R_PMON('" + tB_THANG.Text + "', '" + tB_NAM.Text + "'), SP " +
-                "where left(trim(MA_SP), charindex('_', TRIM(MA_SP))-1) = IDP";
-            DTBC = LayDuLieuRaBang(sql, StringConnect);
-            dGV_BAOCAO.DataSource = DTBC;
-        }
+        
 
         private void bt_BCSP_DTCN_Click(object sender, EventArgs e)
         {
             bt_BCSP_DTCN.Enabled = false;
-            bt_BCSP_BRNN.Enabled = true;
             bt_BCSP_PBN.Enabled = true;
 
             if (tB_THANG.Text == "")
@@ -1560,8 +1488,7 @@ namespace CNPM
             }
 
             string sql;
-            sql = "Select Distinct IDP as [Mã sản phẩm], left(trim(TEN_SP), charindex('_', TRIM(TEN_SP))-1) as [Tên sản phẩm], TotalMoney_P as [Doanh thu] from f_R_PMM('" + tB_THANG.Text + "', '" + tB_NAM.Text + "'), SP " +
-                "where left(trim(MA_SP), charindex('_', TRIM(MA_SP))-1) = IDP";
+            sql = "Select Distinct IDP as [Mã sản phẩm], left((TEN_SP), charindex('_', (TEN_SP))-1) as [Tên sản phẩm], TotalMoney_P as [Doanh thu] from f_R_PMM('"+tB_THANG.Text+"', '"+tB_NAM.Text+"'), SP where left((MA_SP), charindex('_', (MA_SP))-1) = IDP";
             DTBC = LayDuLieuRaBang(sql, StringConnect);
             dGV_BAOCAO.DataSource = DTBC;
         }
@@ -1756,7 +1683,7 @@ namespace CNPM
         private void b_laybcn_Click(object sender, EventArgs e)
         {
             {
-                try
+               // try
                 {
                     b_laybcn.Enabled = false;
                     IsNumberBCN(TBbcnnam.Text);
@@ -1786,7 +1713,7 @@ namespace CNPM
                     sql = "Select round((TotalMoney - TotalMoneyEntry),0) from f_R_TotalMoneyEntry('" + TBbcnnam.Text + "'), f_R_TotalAnnual('" + TBbcnnam.Text + "')";
                     TBbcnlaisuat.Text = GetFieldValues(sql, Connect);
 
-                    sql = "Select N'Tháng ' + cast(DATEPART(MM, Convert(date, NGAYNHAP))as char(2)) as [Tháng], SUM(TotalMoney) as [Doanh thu]" +
+                    sql = "Select N'Tháng' + cast(DATEPART(MM, Convert(date, NGAYNHAP))as char(2)) as [Tháng], SUM(TotalMoney) as [Doanh thu]" +
                         "from v_R_InfoMonthly where cast(DATEPART(YYYY, Convert(date, NGAYNHAP)) as char(4)) = '" + TBbcnnam.Text + "' Group by cast(DATEPART(MM, Convert(date, NGAYNHAP)) as char(2))";
                     DTBCN = LayDuLieuRaBang(sql, StringConnect);
                     chartBCN.DataSource = DTBCN;
@@ -1812,11 +1739,51 @@ namespace CNPM
                     }
                 }
 
-                catch (Exception)
-                {
-                    MessageBox.Show("Bạn nhập sai kiểu ký tự", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+               // catch (Exception)
+               // {
+              //      MessageBox.Show("Bạn nhập sai kiểu ký tự", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // }
             }
+        }
+
+        private void btrefresh_Click(object sender, EventArgs e)
+        {
+            getData();
+        }
+
+        private void quảnLýNhàCungCấpToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            tcql.SelectedIndex = 0;
+        }
+
+        private void quảnLýNhânViênToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            tcql.SelectedIndex = 1;
+        }
+
+        private void quảnLýSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tcql.SelectedIndex = 2;
+        }
+
+        private void loạiHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tcql.SelectedIndex = 3;
+        }
+
+        private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tcql.SelectedIndex = 4;
+        }
+
+        private void nhậpKhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tcql.SelectedIndex = 5;
+        }
+
+        private void báoCáoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tcql.SelectedIndex = 6;
         }
     }
 }

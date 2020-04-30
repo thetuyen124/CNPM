@@ -12,10 +12,15 @@ namespace CNPM
 {
     public partial class quenmk : Form
     {
+        string connectString;
         public quenmk()
         {
             InitializeComponent();
             lbM.Hide();
+        }
+        public quenmk(string a) : this()
+        {
+            connectString = a;
         }
 
         private void quenmk_FormClosed(object sender, FormClosedEventArgs e)
@@ -25,11 +30,10 @@ namespace CNPM
         }
         void fillCombo()
         {
-            string connectString = "Data Source=DESKTOP-R9IA4BP\\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
-            string query = " select NV.USERNAME,CAUHOIBAOMAT.CAUHOI ,NV_CAUHOI.TRALOI from NV JOIN NV_CAUHOI ON NV.MA_NV = NV_CAUHOI.MA_NV JOIN CAUHOIBAOMAT ON CAUHOIBAOMAT.MA_CAUHOI = NV_CAUHOI.MA_CAUHOI WHERE USERNAME = '"+txtUser.Text+"'";
-           
+            string query = " select NV.USERNAME,CAUHOIBAOMAT.CAUHOI ,NV_CAUHOI.TRALOI from NV JOIN NV_CAUHOI ON NV.MA_NV = NV_CAUHOI.MA_NV JOIN CAUHOIBAOMAT ON CAUHOIBAOMAT.MA_CAUHOI = NV_CAUHOI.MA_CAUHOI WHERE USERNAME = '" + txtUser.Text + "'";
+
             SqlConnection connect = new SqlConnection(connectString);
-            SqlCommand cmd = new SqlCommand(query,connect);
+            SqlCommand cmd = new SqlCommand(query, connect);
             SqlDataReader myReader;
 
             try
@@ -47,11 +51,11 @@ namespace CNPM
                 MessageBox.Show(ex.Message);
             }
 
-            
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void txtUser_TextChanged(object sender, EventArgs e)
@@ -61,7 +65,6 @@ namespace CNPM
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string connectString = "Data Source=DESKTOP-R9IA4BP\\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
             string query = " select NV_CAUHOI.TRALOI from NV JOIN NV_CAUHOI ON NV.MA_NV = NV_CAUHOI.MA_NV JOIN CAUHOIBAOMAT ON CAUHOIBAOMAT.MA_CAUHOI = NV_CAUHOI.MA_CAUHOI WHERE nv.USERNAME = '" + txtUser.Text + "' AND CAUHOI = N'" + comboBox1.SelectedItem.ToString() + "';";
             SqlConnection connect = new SqlConnection(connectString);
             SqlCommand cmd = new SqlCommand(query, connect);
@@ -75,8 +78,8 @@ namespace CNPM
                 if (String.Equals(textBox2.Text, traloi))
                 {
                     lbM.Show();
-                    newP.ReadOnly = false;
-                    conP.ReadOnly = false;
+                    newP.Enabled = true;
+                    conP.Enabled = true;
                 }
                 else
                 {
@@ -92,10 +95,9 @@ namespace CNPM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(String.Equals(newP.Text, conP.Text))
+            if (String.Equals(newP.Text, conP.Text))
             {
-                string connectString = "Data Source=DESKTOP-R9IA4BP\\SQLEXPRESS;Initial Catalog=QUANLYCUAHANGGIAY;Integrated Security=True";
-                string query = " update NV set PASS = '"+conP.Text+"' where USERNAME = '"+txtUser.Text+"';";
+                string query = " update NV set PASS = '" + conP.Text + "' where USERNAME = '" + txtUser.Text + "';";
                 SqlConnection connect = new SqlConnection(connectString);
                 connect.Open();
                 SqlCommand cmd = new SqlCommand(query, connect);
@@ -113,6 +115,12 @@ namespace CNPM
             Form a = new dangnhap();
             a.Show();
             this.Hide();
+        }
+
+        private void quenmk_Load(object sender, EventArgs e)
+        {
+            newP.Enabled = false;
+            conP.Enabled = false;
         }
     }
 }

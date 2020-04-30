@@ -16,6 +16,7 @@ namespace CNPM
         private readonly Dictionary<string, int> dic;
         readonly string StringConnect = "";
         private SqlConnection Connect = null;
+        DateTime date;
         public hoadon(string tongtien,string con,ref Dictionary<string,int>  d):this()
         {
             lbthanhtien.Text = tongtien;
@@ -26,7 +27,6 @@ namespace CNPM
         {
             InitializeComponent();
         }
-
         private void Btin_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -67,13 +67,19 @@ namespace CNPM
 
         private void Hoadon_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string query = "insert into DONBAN values(" + Laymakh(cbkh.Text) + "," + dateTimePicker1.Value.Date.ToString("yyyy-MM-dd") + "," + lbthanhtien.Text + ")";
+            date = DateTime.Now;
+            string query = "insert into DONBAN values(" + Laymakh(cbkh.Text) +",'"+ date.ToString("yyyy-MM-dd H:mm:ss") + "'," + lbthanhtien.Text + ")";
             SqlCommand run = new SqlCommand(query, Connect);
             IAsyncResult result= run.BeginExecuteNonQuery();
             run.EndExecuteNonQuery(result);
             foreach (KeyValuePair<string, int> r in dic)
             {
                 query = "insert into THONGTINDONBAN values(" + Laymadh() + ",'"+ Laymasp(r.Key) +"',"+ Laysoluong(r.Value,r.Key) +",0,"+r.Value+")";
+                run = new SqlCommand(query, Connect);
+                result = run.BeginExecuteNonQuery();
+                run.EndExecuteNonQuery(result);
+
+                query = " update SP set SOLUONG -= " + Laysoluong(r.Value, r.Key) +" where TEN_SP=N'"+ r.Key +"'";
                 run = new SqlCommand(query, Connect);
                 result = run.BeginExecuteNonQuery();
                 run.EndExecuteNonQuery(result);

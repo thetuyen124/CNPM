@@ -81,7 +81,6 @@
             // 
             this.conP.Location = new System.Drawing.Point(170, 86);
             this.conP.Name = "conP";
-            this.conP.ReadOnly = true;
             this.conP.Size = new System.Drawing.Size(265, 22);
             this.conP.TabIndex = 8;
             this.conP.UseSystemPasswordChar = true;
@@ -100,7 +99,6 @@
             // 
             this.newP.Location = new System.Drawing.Point(170, 48);
             this.newP.Name = "newP";
-            this.newP.ReadOnly = true;
             this.newP.Size = new System.Drawing.Size(265, 22);
             this.newP.TabIndex = 6;
             this.newP.UseSystemPasswordChar = true;
@@ -238,6 +236,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quên mật khẩu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.quenmk_FormClosed);
+            this.Load += new System.EventHandler(this.quenmk_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -19,12 +19,10 @@ namespace CNPM
         private string StringConnect;
         private SqlConnection Connect = null;
 
-        string ten;//lưu tên nhân viên đang đăng nhập
         string ma; //Lưu mã nhân viên dùng bên dưới :>
         public homenv(string t,string con,string max):this()
         {
-            ten = t;
-            tennhanvien.Text = ten;
+            tennhanvien.Text = t;
             StringConnect = con;
             ma = max;
         }
@@ -110,9 +108,7 @@ namespace CNPM
             rB_1.Enabled = false;
             tB_UN.Enabled = false;
             cB_CH1.Enabled = false;
-            cB_CH2.Enabled = false;
             tB_TL1.Enabled = false;
-            tB_TL2.Enabled = false;
 
             string sql = "Select TEN_NV,CHUCVU, USERNAME, DIACHI_NV, SDT_NV, CMTND, PASS, ANH, GIOITINH from NV where MA_NV = " + ma + "";
             DTNV = LayDuLieuRaBang(sql, StringConnect);
@@ -150,23 +146,6 @@ namespace CNPM
                     {
                         cB_CH1.Text = DR["CAUHOI"].ToString();
                         tB_TL1.Text = DR["TRALOI"].ToString();
-                    }
-                }
-            }
-
-            string query1 = "Select MA_CAUHOI from NV_CAUHOI where MA_NV = " + ma + "";
-            DTNV = LayDuLieuRaBang(query1, StringConnect);
-            if (DTNV != null)
-            {
-                string a = DTNV.Rows[0]["MA_CAUHOI"].ToString();
-                query = "Select CAUHOI, TRALOI from NV_CAUHOI, CAUHOIBAOMAT where NV_CAUHOI.MA_CAUHOI = CAUHOIBAOMAT.MA_CAUHOI and MA_NV = " + ma + " and NV_CAUHOI.MA_CAUHOI = " + a + "";
-                DTNV = LayDuLieuRaBang(query, StringConnect);
-                if (DTNV != null)
-                {
-                    foreach (DataRow DR in DTNV.Rows)
-                    {
-                        cB_CH2.Text = DR["CAUHOI"].ToString();
-                        tB_TL2.Text = DR["TRALOI"].ToString();
                     }
                 }
             }
@@ -317,11 +296,6 @@ namespace CNPM
             b_HuyTK.Enabled = false;
         }
 
-        private void nhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form a = new nvNCC(StringConnect);
-            a.Show();
-        }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -345,22 +319,31 @@ namespace CNPM
 
         private void btthem_Click(object sender, EventArgs e)
         {
-            string query="SELECT GIABAN FROM SP where TEN_SP=N'" + cbtenhang.Text + "'";
-            string giaban;
-            using (SqlCommand cmd = new SqlCommand(query, Connect))
+            try
             {
-                cmd.CommandType = CommandType.Text;
-                SqlDataReader dr = cmd.ExecuteReader();
-                dr.Read();
-                giaban = dr["GIABAN"].ToString();
-                dr.Close();
+                string query = "SELECT GIABAN FROM SP where TEN_SP=N'" + cbtenhang.Text + "'";
+                string giaban;
+                using (SqlCommand cmd = new SqlCommand(query, Connect))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    dr.Read();
+                    giaban = dr["GIABAN"].ToString();
+                    dr.Close();
+                }
+                dgvgiohang.Rows.Add(cbtenhang.Text, cbsize.Text, giaban);
+
+                tt += Convert.ToDouble(giaban);
+                lbtongtien.Text = tt.ToString();
+                updatecbtenhang();
+                updatedgvsp();
+
             }
-            dgvgiohang.Rows.Add(cbtenhang.Text,cbsize.Text, giaban);
-            
-            tt += Convert.ToDouble(giaban);
-            lbtongtien.Text =tt.ToString();
-            updatecbtenhang();
-            updatedgvsp();
+            catch(System.InvalidOperationException)
+            {
+                MessageBox.Show("Chưa chọn mặt hàng","ERROR",MessageBoxButtons.OK);
+            }
+
         }
 
         private void cbtenhang_SelectedValueChanged(object sender, EventArgs e)
@@ -373,6 +356,7 @@ namespace CNPM
             run.Fill(bang);
             cbsize.DataSource = bang.Tables[0];
             cbsize.DisplayMember = "SIZE";
+
         }
         private void check_sp()
         {
@@ -404,6 +388,12 @@ namespace CNPM
                 a.Clear();
             }
         }
-        
+
+        private void tabControl1_Click(object sender, EventArgs e)
+        {
+            updatecbtenhang();
+            updatedgvsp();
+            LoadNV();
+        }
     }
 }

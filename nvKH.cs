@@ -252,5 +252,18 @@ namespace CNPM
             ResetValuesKH();
             TBmaKH.Text = GiveNextMA_KHtomer();
         }
+
+        private void b_HuyKH_Click(object sender, EventArgs e)
+        {
+            b_SuaKH.Enabled = false;
+            b_LuuKH.Enabled = false;
+            b_HuyKH.Enabled = false;
+            TBcmtKH.Text = "";
+            TBdiachiKH.Text = "";
+            TBghichuKH.Text = "";
+            TBmaKH.Text = "";
+            TBsdtKH.Text = "";
+            TBtenKH.Text = "";
+        }
     }
 }

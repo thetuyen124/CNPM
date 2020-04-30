@@ -62,7 +62,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.125677F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.21777F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.93608F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 79F));
             this.tableLayoutPanel6.Controls.Add(this.TBghichuKH, 4, 5);
             this.tableLayoutPanel6.Controls.Add(this.TBcmtKH, 4, 3);
             this.tableLayoutPanel6.Controls.Add(this.TBsdtKH, 4, 1);
@@ -95,28 +95,28 @@
             // TBghichuKH
             // 
             this.TBghichuKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBghichuKH.Location = new System.Drawing.Point(550, 91);
+            this.TBghichuKH.Location = new System.Drawing.Point(546, 91);
             this.TBghichuKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBghichuKH.Name = "TBghichuKH";
-            this.TBghichuKH.Size = new System.Drawing.Size(260, 22);
+            this.TBghichuKH.Size = new System.Drawing.Size(259, 22);
             this.TBghichuKH.TabIndex = 10;
             // 
             // TBcmtKH
             // 
             this.TBcmtKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBcmtKH.Location = new System.Drawing.Point(550, 50);
+            this.TBcmtKH.Location = new System.Drawing.Point(546, 50);
             this.TBcmtKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBcmtKH.Name = "TBcmtKH";
-            this.TBcmtKH.Size = new System.Drawing.Size(260, 22);
+            this.TBcmtKH.Size = new System.Drawing.Size(259, 22);
             this.TBcmtKH.TabIndex = 11;
             // 
             // TBsdtKH
             // 
             this.TBsdtKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBsdtKH.Location = new System.Drawing.Point(550, 9);
+            this.TBsdtKH.Location = new System.Drawing.Point(546, 9);
             this.TBsdtKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBsdtKH.Name = "TBsdtKH";
-            this.TBsdtKH.Size = new System.Drawing.Size(260, 22);
+            this.TBsdtKH.Size = new System.Drawing.Size(259, 22);
             this.TBsdtKH.TabIndex = 12;
             // 
             // label15
@@ -127,7 +127,7 @@
             this.label15.Location = new System.Drawing.Point(4, 5);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(114, 32);
+            this.label15.Size = new System.Drawing.Size(113, 32);
             this.label15.TabIndex = 0;
             this.label15.Text = "Mã Khách Hàng";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -136,10 +136,10 @@
             // 
             this.TBmaKH.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.TBmaKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBmaKH.Location = new System.Drawing.Point(126, 9);
+            this.TBmaKH.Location = new System.Drawing.Point(125, 9);
             this.TBmaKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBmaKH.Name = "TBmaKH";
-            this.TBmaKH.Size = new System.Drawing.Size(243, 22);
+            this.TBmaKH.Size = new System.Drawing.Size(241, 22);
             this.TBmaKH.TabIndex = 7;
             // 
             // label19
@@ -147,7 +147,7 @@
             this.label19.AutoSize = true;
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(443, 46);
+            this.label19.Location = new System.Drawing.Point(439, 46);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(99, 28);
@@ -163,7 +163,7 @@
             this.label16.Location = new System.Drawing.Point(4, 46);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(114, 28);
+            this.label16.Size = new System.Drawing.Size(113, 28);
             this.label16.TabIndex = 1;
             this.label16.Text = "Tên Khách Hàng";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -171,19 +171,19 @@
             // TBtenKH
             // 
             this.TBtenKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBtenKH.Location = new System.Drawing.Point(126, 50);
+            this.TBtenKH.Location = new System.Drawing.Point(125, 50);
             this.TBtenKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBtenKH.Name = "TBtenKH";
-            this.TBtenKH.Size = new System.Drawing.Size(243, 22);
+            this.TBtenKH.Size = new System.Drawing.Size(241, 22);
             this.TBtenKH.TabIndex = 9;
             // 
             // TBdiachiKH
             // 
             this.TBdiachiKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TBdiachiKH.Location = new System.Drawing.Point(126, 91);
+            this.TBdiachiKH.Location = new System.Drawing.Point(125, 91);
             this.TBdiachiKH.Margin = new System.Windows.Forms.Padding(4);
             this.TBdiachiKH.Name = "TBdiachiKH";
-            this.TBdiachiKH.Size = new System.Drawing.Size(243, 22);
+            this.TBdiachiKH.Size = new System.Drawing.Size(241, 22);
             this.TBdiachiKH.TabIndex = 8;
             // 
             // label17
@@ -194,7 +194,7 @@
             this.label17.Location = new System.Drawing.Point(4, 87);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(114, 31);
+            this.label17.Size = new System.Drawing.Size(113, 31);
             this.label17.TabIndex = 2;
             this.label17.Text = "Địa Chỉ";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -204,7 +204,7 @@
             this.label18.AutoSize = true;
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(443, 5);
+            this.label18.Location = new System.Drawing.Point(439, 5);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(99, 32);
@@ -218,7 +218,7 @@
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label20.Location = new System.Drawing.Point(443, 87);
+            this.label20.Location = new System.Drawing.Point(439, 87);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(99, 31);
@@ -308,6 +308,7 @@
             this.b_HuyKH.TabIndex = 17;
             this.b_HuyKH.Text = "Hủy bỏ";
             this.b_HuyKH.UseVisualStyleBackColor = true;
+            this.b_HuyKH.Click += new System.EventHandler(this.b_HuyKH_Click);
             // 
             // b_LuuKH
             // 
